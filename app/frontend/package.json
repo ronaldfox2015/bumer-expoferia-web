@@ -24,7 +24,7 @@
     "device.js": "^2.3.0",
     "inputmask": "^3.3.7",
     "iscroll": "^5.2.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "jquery-ui": "^1.12.1",
     "jquery-validation": "^1.17.0",
     "mapbox-gl": "^0.53.1",
