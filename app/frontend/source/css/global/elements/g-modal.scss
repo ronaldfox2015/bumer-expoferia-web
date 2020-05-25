@@ -1,0 +1,37 @@
+.g-modal {
+  display: none;
+  overflow: initial;
+  padding: 0;
+  .is-active{
+    display: block;
+  }
+  .is-loading{
+    background-color: rgba(255, 255, 255, 0.79);
+    background-image: url(../../../images/loading.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  &_title {
+    color: #0e5682;
+    font-size: 24px;
+    padding: 20px 0;
+    text-align: center;
+  }
+  &_btn-container {
+    padding: 10px 0;
+    text-align: right;
+    .g-btn {
+      font-family: $familyBold;
+      margin-right: 10px;
+      padding: 0 20px;
+      text-transform: uppercase;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+script#tplSuggestLogin(type='text/template', defer)
+  div
+    | El correo&nbsp;
+    b <%= email %>
+    | &nbsp;ya se encuentra registrado. Puede iniciar sesión haciendo clic&nbsp;
+    a.js-login-init.u-underline(href="javascript:;") aquí
+    | &nbsp;.

@@ -1,0 +1,96 @@
+.b-modal-login {
+  background: white;
+  width: 300px;
+  &_form {
+    margin: 0px 27px 10px 27px;
+  }
+  &__forgotten-pass {
+    background-color: transparent;
+    border: none;
+    color: #0D5682;
+    margin-top: 10px;
+    text-decoration: underline;
+  }
+  &_remember-browser {
+    color: #0D5682;
+    cursor: pointer;
+    display: block;
+    line-height: 17px;
+    padding-left: 20px;
+    margin-top: 10px;
+    position: relative;
+    input[type="checkbox"] {
+      left: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 2px;
+    }
+  }
+  .g-btn{
+    width: 100%;
+    &--blue {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+  &_btn-social {
+    align-items: center;
+    background: #0D5682;
+    color: #FFFFFF;
+    display: block;
+    display: flex;
+    font: 16px $familyBold;
+    justify-content: space-between;
+    padding: 13px 4px 13px 17px;
+    &_facebook {
+      position: relative;
+      z-index: 0;
+      &:before {
+        background: white;
+        content: '';
+        display: block;
+        height: 30px;
+        left: 3px;
+        position: absolute;
+        top: 3px;
+        width: 30px;
+        z-index: -1;
+      }
+    }
+    &__text {
+      margin: 0 auto 0 0;
+    }
+    .g-icon {
+      fill: white;
+      height: 36px;
+      width: 36px;
+    }
+    .g-icon-facebook_square {
+      display: inline-block;
+      fill: #3b5998;
+      margin: 0 15px 0 0;
+      vertical-align: middle;
+      z-index: 1;
+    }
+  }
+  &_bottom {
+    background: #ECECEC;
+    color: #333;
+    display: block;
+    font-size: 16px;
+    line-height: 52px;
+    margin: 0;
+    text-align: center;
+    &__signup {
+      background-color: transparent;
+      border: none;
+      color: $blue;
+      margin-left: 5px;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

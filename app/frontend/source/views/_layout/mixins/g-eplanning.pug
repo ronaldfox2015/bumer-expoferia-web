@@ -1,0 +1,9 @@
+mixin g-eplanning(section, extraClass)
+  - extraClass = extraClass || ''
+  .g-eplanning(class!=`${extraClass}`)
+    script(type="text/javascript").
+      eplAD4M("#{section}")
+
+mixin script-eplanning(options)
+  script(type="text/javascript").
+    function eplCheckStart(){if(document.epl){var e=document.epl;if(e.eplReady())return!0;if(e.eplInit(eplArgs),eplArgs.custom)for(var t in eplArgs.custom)e.setCustomAdShow(t,eplArgs.custom[t]);return e.eplReady()}if(!eplLL){var o=document.createElement("SCRIPT");o.async=!0,o.src=schemeLocal()+"://"+eS1+"/layers/epl-41.js",document.head.appendChild(o),eplLL=!0}return!1}function eplSetAdM(e,t){eplCheckStart()?(t&&document.epl.setCustomAdShow(e,eplArgs.custom[e]),document.epl.showSpace(e)):setTimeout(eplSetAdM.bind(null,e,t),250)}function eplAD4M(e,t){document.write('<div id="eplAdDiv'+e+'"></div>'),t&&(eplArgs.custom||(eplArgs.custom={}),eplArgs.custom[e]=t),eplSetAdM(e,!!t)}function schemeLocal(){if(protocol=document.location.protocol||window.top.location.protocol,protocol)return-1!==protocol.indexOf("https")?"https":"http"}var eplDoc=document,eplLL=!1,eS1="us.img.e-planning.net",eplArgs={iIF:1,sV:schemeLocal()+"://ads.us.e-planning.net/",vV:"4",sI:"230e7",sec:"#{options.sec}",eIs:#{options.eIs}};eplCheckStart();

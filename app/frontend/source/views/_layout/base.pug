@@ -1,0 +1,43 @@
+include ../_config/page
+include mixins/_mixins
+
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+    include includes/metas
+    include includes/favicon
+    block seo
+    link(rel="stylesheet", type="text/css", href!="{{ asset('vendor.css') }}")
+    link(rel="stylesheet", type="text/css", href!="{{ asset('global.css') }}")
+    block stylesheets
+    +gtm-block-header()
+    block datalayer
+  body
+    block eplanning
+    +gtm-block-body()
+    include includes/l-header
+    .l-main-body
+      block content
+    include includes/l-footer
+    .u-hide
+      include includes/icons.svg
+    include modals/_modals
+    include templates/_templates
+    block modals
+    script(type="text/javascript").
+      window.logged = '{{ auth.isLoggedIn() ? "1" : "0" }}';
+      var settings = {};
+
+      {% if not auth.isLoggedIn() or ( auth.isLoggedIn() and app.request.get('_route') == 'category_slug_detail_job' ) %}
+        settings.gradeStates = JSON.parse('{{ base.getGrades() | json_encode() | raw }}');
+        settings.areas = JSON.parse('{{ base.getAreas() | json_encode() | raw }}');
+        settings.levels = JSON.parse('{{ base.getLevels() | json_encode() | raw }}');
+      {% endif %}
+      settings.aptitusUrl = '{{ base.getAptitusHost() }}';
+    script(src!="{{ asset('manifest.js') }}", defer)
+    script(src!="{{ asset('vendor.js') }}", defer)
+    script(src!="{{ asset('babel-polyfill.js') }}", defer)
+    block scripts
+    include includes/pixeles

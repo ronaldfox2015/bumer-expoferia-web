@@ -1,0 +1,16 @@
+.g-expo-company{
+  &_box-image {
+    height: 85vh;
+  }
+  &_image {
+    height: 100%;
+    left: 48%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    transform: translate(-48%, 0);
+  }
+  &_image-hide {
+    display: none;
+  }
+}

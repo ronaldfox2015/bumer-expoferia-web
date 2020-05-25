@@ -1,0 +1,31 @@
+.tooltipster-sidetip {
+  &.tooltipster-aptitus {
+    .tooltipster-box {
+      background: #000;
+      border: 1px solid #000;
+      font-size: 12px;
+      text-align: center;
+      text-transform: uppercase;
+      a {
+        text-decoration: underline;
+      }
+    }
+    .tooltipster-content {
+      line-height: 12px;
+      padding: 3px 4px;
+    }
+    .tooltipster-arrow {
+      .tooltipster-arrow-uncropped {
+        .tooltipster-arrow-background {
+          border-bottom-color: #000;
+        }
+      }
+    }
+    &.tooltipster-top {
+      .tooltipster-arrow-background {
+        border-top-color: #000;
+        top: 0;
+      }
+    }
+  }
+}

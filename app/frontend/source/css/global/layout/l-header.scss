@@ -1,0 +1,352 @@
+@import "../../_config/_mixins";
+
+body {
+  background: white;
+  margin: 0;
+}
+
+// Header //
+.l-header {
+  background: white;
+  color: $blue;
+  font-size: 15px;
+  height: 60px;
+  position: relative;
+  z-index: 1001;
+  &_inner {
+    background: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.38);
+    top: -60px;
+    transition: top .3s ease;
+    width: 100%;
+    &.is-active  {
+      position: fixed;
+      top: 0;
+      transform: translateZ(0);
+    }
+  }
+  &_main {
+    align-items: center;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    position: relative;
+    &__right {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: flex-end;
+      padding: 13px 0 0 15px;
+    }
+    &-list {
+      font-family: $familyBold;
+      width:100%;
+    }
+    &-logout {
+      flex-shrink: 0;
+      font-family: $familyBold;
+      width: 185px;
+    }
+  }
+  &_center{
+    display: flex;
+    justify-content: center;
+  }
+  &_title {
+    padding-right: 5px;
+  }
+  &_menu {
+    align-items: center;
+    display: flex;
+    font-size: 15px;
+    height: 48px;
+    list-style: none;
+    margin: 0 5px 0 0;
+    position: relative;
+    text-align: center;
+    transition: .6s;
+    &--session {
+      color: #000;
+      display: block;
+      max-width: 115px;
+      overflow: hidden;
+      padding-top: 10px;
+      text-transform: inherit;
+      word-wrap: break-word;
+    }
+    .g-btn {
+      padding: 0 15px;
+      text-transform: uppercase;
+    }
+    .l-header_company-name {
+      height: 20px;
+      white-space: nowrap;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &__wrapper, &__wrapper--first {
+      display: flex;
+      height: 100%;
+      padding: 8px 13px 5px 5px;
+      .g-icon {
+        fill: #045884;
+      }
+    }
+    &:hover {
+      .l-header_menu__company {
+        background: #fff;
+        border-top: 1px solid $blue;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.28);
+        column-count: 3;
+        column-gap: 12px;
+        display: block;
+        left: 0;
+        padding: 12px;
+        position: absolute;
+        text-align: left;
+        top: 47px;
+        width: calc(100% * 2.8);
+        &--education {
+          column-count: 1;
+          width: 100%;
+        }
+      }
+      .l-header_menu__wrapper {
+        border: 1px solid #045584;
+        border-bottom-color: white;
+        border-radius: 5px 5px 0 0;
+        z-index: 1;
+      }
+      .l-header_nav-logout {
+        background: #fff;
+        border-radius: 0 0 5px 5px;
+        display: block;
+        padding: 5px 0;
+        position: absolute;
+        right: 0px;
+        top: 47px;
+        width: 150px;
+        &__item {
+          cursor: pointer;
+          padding: 10px 20px;
+          text-transform: none;
+          &:hover {
+            background: $blue;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &__home {
+      padding: 2px 5px;
+    }
+    &__logout {
+      display: block;
+      height: 47px;
+      padding-top: 8px;
+      .g-icon {
+        fill: $blue;
+      }
+      .g-icon-arrow_down {
+        margin-bottom: 10px;
+      }
+    }
+    &__link {
+      padding: 2px 5px;
+    }
+    &__company {
+      display: none;
+    }
+    &__item {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .g-icon-person {
+      height: 25px;
+      width: 25px;
+      fill: $blue;
+      stroke-width: 4px;
+      stroke: $blue;
+    }
+  }
+  &_logo {
+    display: block;
+    margin-left: 5px;
+  }
+  &--blank {
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 0 0 20px;
+    min-width: 138px;
+    padding-top: 2px;
+    &:hover {
+      border-bottom: none;
+      text-decoration: none;
+      .g-icon {
+        fill: white;
+      }
+    }
+    .g-icon {
+      fill: $blue;
+    }
+  }
+  &--blue {
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    padding-top: 2px;
+    &:hover {
+      border-bottom: none;
+      text-decoration: none;
+    }
+  }
+  &--margin {
+    margin-left: 5px;
+  }
+  &_sandwich {
+    display: none;
+  }
+  &__txt-out {
+    padding: 2px 0;
+  }
+  &_nav-logout {
+    display: none;
+  }
+  &-middle-item {
+    border-top: 1px solid #ddd;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .l-header_menu {
+    &:hover {
+      .l-header_menu__company {
+        column-count: 2;
+        width: calc(100% * 2);
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .l-header_main-list {
+    display: none;
+  }
+  .l-header_menu__wrapper .g-icon {
+    height: 20px;
+    width: 40px;
+  }
+  .l-header_main-logout {
+    display: none;
+  }
+  .l-header_main__left {
+    width: 350px;
+  }
+  .l-header_sandwich {
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    .g-icon{
+      @include icon(#3088c8, 30px, 30px);
+    }
+    &.is-active {
+      .g-icon {
+        fill: #ccc;
+      }
+    }
+  }
+}
+
+.l-header-mobile {
+  color: $blue;
+  font-size: 16px;
+  &_mask {
+    background: rgba(0, 0, 0, .6);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    transition: all .3s ease;
+    z-index: 999;
+  }
+  &_list {
+    background: white;
+    min-width: 270px;
+    position: fixed;
+    right: -240px;
+    text-align: left;
+    top: -287px;
+    transition: all .3s ease;
+    visibility: hidden;
+    z-index: 1000;
+    &_item {
+      border-top: 1px solid #ececec;
+      font-family: $familyBold;
+      list-style: none;
+      padding: 17px 20px;
+      &:last-child {
+        border-bottom: 1px solid #ececec;
+      }
+      &__link {
+        display: block;
+      }
+      &:hover {
+        background: #ececec;
+      }
+      &--blue {
+        background: $blue;
+        color: white;
+        &:hover {
+          background: #03456A;
+        }
+      }
+    }
+    .g-icon {
+      fill: $blue;
+      margin-bottom: -2px;
+      margin-left: 36px;
+      transform: rotate(270deg);
+    }
+  }
+  @include breakpoint(max-width 834px) {
+    &--first {
+      display: none;
+    }
+    &--second {
+      display: none;
+    }
+    &--first,
+    &--second {
+      &.is-active {
+        display: block;
+        .l-header-mobile {
+          &_mask {
+            animation: fadeIn 4s;
+            display: block;
+          }
+          &_list--first,
+          &_list--second {
+            height: calc(100% - 55px);
+            overflow-x: scroll;
+            right: 0;
+            top: 60px;
+            visibility: visible;
+          }
+        }
+      }
+    }
+    &_list_item__link--rotate {
+      .g-icon {
+        margin-left: -12px;
+        transform: rotate(90deg);
+      }
+    }
+    &_item_text {
+      margin-left: 8px;
+    }
+  }
+}

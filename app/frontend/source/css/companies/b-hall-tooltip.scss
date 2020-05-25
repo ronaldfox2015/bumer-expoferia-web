@@ -1,0 +1,29 @@
+.b-hall-tooltip {
+  background: #FFF;
+  bottom: 10px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.58);
+  display: none;
+  height: 135px;
+  left: 10px;
+  padding: 6px 10px;
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  z-index: 1;
+  &.is-active {
+    display: block;
+  }
+  &_item {
+    display: none;
+  }
+  &_text {
+    height: 32px;
+    margin: 0;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  &_image {
+    height: 80px;
+    margin-bottom: 6px;
+  }
+}

@@ -1,0 +1,5 @@
+.b-stand_navigation.js-content-tooltip
+  a.g-btn--skyblue.g-navigation_button.g-navigation_button--right.js-area-tooltip(href!="{{ url('category_slug_jobs', {slug: company.control.previous.slug }) }}", title="{{ company.control.previous.trade_name }}", onclick!="{{ datalayer.createDataLayer('slider', company.control.previous.trade_name ~ ' | Selección Slider Left', 1, {'companySlug': company.slug})|raw }}")
+    +g-icon("g-icon-arrow_right2")
+  a.g-btn--skyblue.g-navigation_button.g-navigation_button--left.js-area-tooltip(href!="{{ url('category_slug_jobs', {slug: company.control.next.slug }) }}", title="{{ company.control.next.trade_name  }}", onclick!="{{ datalayer.createDataLayer('slider', company.control.next.trade_name ~ ' | Selección Slider Rigth', 1, {'companySlug': company.slug})|raw }}")
+    +g-icon("g-icon-arrow_right2")

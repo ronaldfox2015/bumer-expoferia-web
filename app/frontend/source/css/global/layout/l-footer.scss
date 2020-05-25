@@ -1,0 +1,96 @@
+@import "../../_config/_mixins";
+
+.l-footer {
+  &_inner {
+    background: $blue;
+    padding: 4px;
+    position: relative;
+  }
+  &_main {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  &_social-networks {
+    display: flex;
+    justify-content: center;
+  }
+  &_link {
+    color: $black;
+    font-size: 14px;
+    padding: 6px;
+    text-align: center;
+  }
+  &_links-list {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  &_item {
+    font-size: 12px;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+  &_link-enlace {
+    @include hover(none, $blue);
+    color: $black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &_icon {
+    margin: 0 7px;
+    position: relative;
+    &:before  {
+      background: white;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 30px;
+      left: 1px;
+      position: absolute;
+      top: 1px;
+      width: 30px;
+    }
+    .g-icon {
+      position: relative;
+      &-facebook-circle {
+        @include icon($darkblue, 32px, 32px);
+      }
+      &-twitter-circle {
+        @include icon($sky, 32px, 32px);
+      }
+      &-linkedin-circle {
+        @include icon($jade, 32px, 32px);
+      }
+    }
+  }
+}
+
+
+@media (max-width: 834px) {
+  .l-footer {
+    &_logo {
+      display: none;
+    }
+    &_main {
+      justify-content: center;
+    }
+    &_icon {
+      &:before {
+        left: 1px;
+      }
+    }
+    &_links-list {
+      display: block;
+      margin: 10px 0;
+    }
+    &_item {
+      margin: 4px 5px;
+      text-align: center;
+    }
+    &_link {
+      padding: 0;
+    }
+  }
+}

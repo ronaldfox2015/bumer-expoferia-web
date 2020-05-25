@@ -1,0 +1,22 @@
+parameters:
+  app_log_group :    '%env(APP_LOG_GROUP)%'
+  app_log_stream:    '%env(APP_LOG_STREAM)%'
+  app_log_retention: '%env(APP_LOG_RETENTION_DAYS)%'
+
+services:
+
+   app.monolog.cloudwatchlog.client:
+     class: Aws\CloudWatchLogs\CloudWatchLogsClient
+     arguments:
+         - version: latest
+           region:  '%env(AWS_DEFAULT_REGION)%'
+
+   app.monolog.cloudwatchlog.handler:
+      class: Aptitus\Common\Log\Monolog\Handler\CloudWatch
+      arguments:
+          - '@app.monolog.cloudwatchlog.client'
+          - '%env(APP_LOG_GROUP)%'
+          - '%env(APP_LOG_STREAM)%'
+          - '%env(APP_LOG_RETENTION_DAYS)%'
+          - 1
+          - { mytag: "app" }

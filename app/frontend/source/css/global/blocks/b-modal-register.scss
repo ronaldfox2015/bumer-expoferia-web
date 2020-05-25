@@ -1,0 +1,75 @@
+.b-modal-register {
+  background: white;
+  width: 464px;
+  position: relative;
+  &_form {
+    padding: 0 27px 20px;
+  }
+  &__subtitle {
+    font-size: 16px;
+    margin-bottom: 13px;
+    &--blue {
+      color: $blue;
+      font-size: 20px;
+      margin: 18px 0 8px;
+    }
+  }
+  &__error {
+    font-size: 16px;
+    margin-bottom: 13px;
+  }
+  &__experience {
+    margin-bottom: 5px;
+  }
+  &__label {
+    margin-left: 3px;
+  }
+  &_conditions {
+    &__accounts {
+      line-height: 17px;
+      margin-top: 7px;
+      text-align: left;
+    }
+    &__link-policies {
+      display: inline;
+      margin-left: 6px;
+      text-decoration: underline;
+      vertical-align: baseline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &_buttons-first {
+    margin-bottom: 36px;
+  }
+  &_buttons {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .g-btn {
+      font-size: 18px;
+      margin: 10px;
+    }
+  }
+  &_bottom-container {
+    background-color: #eaeaea;
+    bottom: 0;
+    padding: 17px 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    &__login {
+      font-size: 16px;
+    }
+    &__link {
+      color: $blue;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

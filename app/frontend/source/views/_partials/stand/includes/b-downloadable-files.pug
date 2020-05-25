@@ -1,0 +1,17 @@
+.b-downloadable-files
+  table#tblDownloadable.g-table(cellspacing="0", border="0")
+    thead.g-table_header
+      tr.g-table_header_row
+        th.g-table_header_row_cell(width="80%") Archivo
+        th.g-table_header_row_cell(width="20%") Acciones
+    tbody.g-table_body
+      | {% for document in company.document %}
+      tr.g-table_body_row
+        td.g-table_body_row_cell
+          | {{ document.title }}
+          span.b-downloadable-files__weight  (2mb)
+        td.g-table_body_row_cell.b-downloadable-files_box
+          a.b-downloadable-files_link(href!="{{ document.link }}")
+            span.b-downloadable-files_link__text Descargar
+            +g-icon("g-icon-download")
+      | {% endfor %}

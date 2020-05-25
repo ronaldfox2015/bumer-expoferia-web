@@ -1,0 +1,9 @@
+.is-mobile-menu-active {
+  overflow: hidden;
+  .l-main-body {
+    overflow: hidden;
+  }
+  .l-footer {
+    display: none;
+  }
+}

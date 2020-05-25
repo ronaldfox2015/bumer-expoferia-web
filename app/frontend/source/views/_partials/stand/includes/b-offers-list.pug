@@ -1,0 +1,107 @@
+.b-offers-list
+  +g-eplanning("Middle")
+  .b-offers-list_search
+    form.b-offers-list_search_wrap(method="GET")
+      input.b-offers-list_search_wrap_input(type="text", name="q", placeholder="Buscar avisos", value="{{query}}")
+      button.b-offers-list_search_wrap_button.js-btn-search(type="submit")
+        +g-icon("g-icon-lens")
+  | {% set first, last, page = 0, 0, 0 %}
+  | {% if paginate.navigation is not empty %}
+  | {% set first, last, page = paginate.navigation.first.page, paginate.navigation.last.page, actual_page %}
+  | {% endif %}
+  | {% if jobs.data is not empty %}
+  .b-list-ads
+    h2.b-list-ads_title PUESTOS DE TRABAJO
+    | {% for job in jobs.data %}
+    | {% set jobSlug = job.slug ~ "-" ~ job.id  %}
+    a.b-list-ads_box(href !="{{ url('category_slug_detail_job', {slug: job.company_slug, slugJob: jobSlug}) }}", onclick!="{{ datalayer.createDataLayer('job', job.company_slug, 1, {'jobName': job.title, 'jobId': job.id, 'first': first, 'last': last, 'page': page})|raw }}")
+      .b-list-ads_name {{ job.title }}
+      .b-list-ads_company {{ job.company }}
+      .b-list-ads_features
+        .b-list-ads_features-left
+          .b-list-ads_ubication
+            +g-icon("g-icon-map_marker")
+            span.b-list-ads_ubication-name {{ job.location }}
+          .b-list-ads_category
+            +g-icon("g-icon-folder_open")
+            span.b-list-ads_category-name {{ job.area }}
+    | {% endfor %}
+  | {% if not paginate.navigation is empty %}
+  .g-table_paginate
+    ul.g-paginator_mobile
+      li.g-paginator_mobile__item.g-paginator_mobile__item-left
+        | {% if paginate.navigation.prev.disabled %}
+        a.g-paginator_mobile__item-link.is-disabled(title="Anterior")
+          +g-icon("g-icon-arrow_left")
+          span Anterior
+        | {% else %}
+        a.g-paginator_mobile__item-link(title="Anterior", href!="{{ paginate.navigation.prev.url }}")
+          +g-icon("g-icon-arrow_left")
+          span Anterior
+        | {% endif %}
+      li.g-paginator_mobile__item.g-paginator_mobile__item-right
+        | {% if paginate.navigation.next.disabled %}
+        a.g-paginator_mobile__item-link.is-disabled(title="Siguiente")
+          span Siguiente
+          +g-icon("g-icon-arrow_right")
+        | {% else %}
+        a.g-paginator_mobile__item-link(title="Siguiente", href!="{{ paginate.navigation.next.url }}")
+          span Siguiente
+          +g-icon("g-icon-arrow_right")
+        | {% endif %}
+  | {% endif %}
+  | {% else %}
+  .b-offers-list_empty No hemos encontrado avisos.
+  | {% endif %}
+  .b-offers-list_footer
+    .b-offers-list_footer_wrap
+      | {% if company.slug != 'avisos-destacados' %}
+      | {% set idusuario = auth.isLoggedIn() ? auth.getUser().getIdentityId() : 0 %}
+      button.g-btn.g-btn--blue(type="button", class!="{{ btn_cv_class }}", data-user-id!= "{{idusuario}}", data-company!="{{company.trade_name}}", onclick!="{{ datalayer.createDataLayer('cv', company.slug, 1)|raw }}", data-id-company!="{{ enterprise.id }}")
+        | DEJAR CV
+      | {% endif %}
+    | {% if not paginate.navigation is empty %}
+    .g-paginator
+      ul.g-paginator_desktop
+        li.g-paginator_desktop__item.g-paginator_desktop__item-first-child
+          | {% if paginate.navigation.first.disabled %}
+          a.g-paginator_desktop__item-link.is-disabled(title="Primera")
+            +g-icon("g-icon-double_arrow")
+          | {% else %}
+          a.g-paginator_desktop__item-link(title="Primera", href!="{{ paginate.navigation.first.url }}")
+            +g-icon("g-icon-double_arrow")
+          | {% endif %}
+        li.g-paginator_desktop__item
+          | {% if paginate.navigation.prev.disabled %}
+          a.g-paginator_desktop__item-link.is-disabled(title="Anterior" )
+            +g-icon("g-icon-previous_page")
+          | {% else %}
+          a.g-paginator_desktop__item-link(title="Anterior", href!="{{ paginate.navigation.prev.url }}" )
+            +g-icon("g-icon-previous_page")
+          | {% endif %}
+        | {% for page in paginate.pages %}
+        | {% if page.active %}
+        li.g-paginator_desktop__item
+          a.g-paginator_desktop__item-link.is-active {{ page.page }}
+        | {% else %}
+        li.g-paginator_desktop__item
+          a.g-paginator_desktop__item-link(href!="{{ page.url }}") {{ page.page }}
+        | {% endif %}
+        | {% endfor %}
+        li.g-paginator_desktop__item
+          | {% if paginate.navigation.next.disabled %}
+          a.g-paginator_desktop__item-link.is-disabled.next(title="Siguiente")
+            +g-icon("g-icon-previous_page")
+          | {% else %}
+          a.g-paginator_desktop__item-link.next(title="Siguiente", href!="{{ paginate.navigation.next.url }}")
+            +g-icon("g-icon-previous_page")
+          | {% endif %}
+        li.g-paginator_desktop__item.g-paginator_desktop__item-last-child
+          | {% if paginate.navigation.last.disabled %}
+          a.g-paginator_desktop__item-link.is-disabled.next(title="Última")
+            +g-icon("g-icon-double_arrow")
+          | {% else %}
+          a.g-paginator_desktop__item-link.next(title="Última", href!="{{ paginate.navigation.last.url }}")
+            +g-icon("g-icon-double_arrow")
+          | {% endif %}
+    | {% endif %}

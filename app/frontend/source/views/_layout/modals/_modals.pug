@@ -1,0 +1,6 @@
+include modal_login
+| {% if not auth.isLoggedIn() %}
+include modal_register
+| {% endif %}
+include modal_confirmation
+include modal_recovery_password

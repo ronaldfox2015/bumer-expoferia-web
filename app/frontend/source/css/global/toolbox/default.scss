@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+html {
+  font-size: $basefont;
+  height: 100%;
+}
+
+body {
+  background: white;
+  color: #565656;
+  font-family: $familyDefault;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $familyBold;
+  font-weight: normal;
+  margin: 0;
+}
+input:focus{
+  outline: 0;
+}
+input::-ms-clear{
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+[type="text"],
+[type="email"],
+[type="date"],
+[type="tel"],
+[type="password"],
+select,
+textarea {
+  background-color: transparent;
+  border: 1px solid #BFBFBF;
+  padding: 5px;
+  resize: none;
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset;
+  }
+  &:focus {
+    outline: 0
+  }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  &:focus{
+    outline: 0;
+  }
+}
+
+label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p {
+  margin: 0 0 5px 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: $familyDefault;
+}
+
+button:focus {
+  outline: 0;
+}
+
+form{
+  margin: 0;
+}
+
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+

@@ -1,0 +1,12 @@
+.b-about-us.u-center_box.js-content
+  | {% if company.profile is not empty %}
+  | {% for profile in company.profile %}
+  .b-about-us_title {{ profile.title }}
+  .b-about-us_description {{ profile.description|raw }}
+  | {% endfor %}
+  | {% endif %}
+  | {% if company.latitude is not empty and company.longitude is not empty %}
+  .b-about-us_title UBICACIÓN DE LA EMPRESA
+  .js-map-location.g-map_location
+    #mapCanvas.g-map_canvas(data-latitude!="{{ company.latitude }}", data-longitude!="{{ company.longitude }}")
+  | {% endif %}

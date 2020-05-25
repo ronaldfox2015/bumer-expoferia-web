@@ -1,0 +1,30 @@
+.g-aside {
+  font-family: $familyBold;
+  padding-top: 23px;
+  width: 271px;
+  &_social-networks {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+  &_description {
+    font-size: 15px;
+    margin-bottom: 8px;
+    width: 75px;
+  }
+  .g-btn {
+    border-radius: 8px;
+    display: block;
+    font-size: 17px;
+    height: 46px;
+    line-height: 46px;
+    margin-left: auto;
+    text-transform: capitalize;
+    width: 213px;
+  }
+  .g-icon-postulate-view {
+    fill: #ffffff;
+    margin-right: 10px;
+  }
+}

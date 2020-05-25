@@ -1,0 +1,26 @@
+.b-offer {
+   &_container-education {
+    min-height: 800px;
+    position: relative;
+  }
+  &_header-logo-education {
+    flex-shrink: 0;
+    height: 150px;
+    width: 150px;
+  }
+  &_detail-items {
+    display: flex;
+    margin-bottom: 3px;
+  }
+  &_description-education {
+    text-align: justify;
+    ul {
+      margin: 1em 0;
+      padding-left: 40px;
+      li {
+        list-style: disc;
+        margin: 5px 0;
+      }
+    }
+  }
+}

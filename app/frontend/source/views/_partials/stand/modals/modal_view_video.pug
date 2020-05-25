@@ -1,0 +1,8 @@
+| {% if company.stand.video %}
+#modalViewVideo.g-modal.b-modal-view-video
+  .b-modal-view-video_box
+    .b-modal-view-video_icon.js-icon-close
+      +g-icon("g-icon-close")
+    iframe.js-video(width="100%" height="100%" src!="{{company.stand.video}}"
+frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allowscriptaccess="always")
+| {% endif %}

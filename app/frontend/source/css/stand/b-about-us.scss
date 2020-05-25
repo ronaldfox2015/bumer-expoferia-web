@@ -1,0 +1,44 @@
+.b-about-us {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  &_title {
+    align-items: center;
+    color: $blue;
+    display: flex;
+    font-size: 22px;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 25px 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: bold;
+    &:before, &:after {
+      border-top: 1px solid $blue;
+      content: "";
+      height: 2px;
+      bottom: 20px;
+      width: 24px;
+    }
+    &:before {
+      margin-right: 12px;
+    }
+    &:after {
+      margin-left: 12px;
+    }
+  }
+  &_description {
+    padding: 15px 0;
+    text-align: justify;
+    a {
+      color: $blue;
+      text-decoration: underline;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 40px;
+    }
+  }
+}

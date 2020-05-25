@@ -1,0 +1,35 @@
+.b-downloadable-files {
+  color: #1a4f6f;
+  margin: 50px auto;
+  width: 75%;
+  &_link__text {
+    text-decoration: underline;
+  }
+  &_box {
+    text-align: center;
+  }
+  .g-icon {
+    display: none;
+  }
+  @include breakpoint($mobile) {
+    color: #62615f;
+    margin: 0;
+    width: 100%;
+    .g-table {
+      margin-top: 15px;
+      &_header {
+        display: none;
+      }
+    }
+    &__weight {
+      display: none;
+    }
+    &_link__text {
+      display: none
+    }
+    .g-icon {
+      display: block;
+      fill: #62615f;
+    }
+  }
+}

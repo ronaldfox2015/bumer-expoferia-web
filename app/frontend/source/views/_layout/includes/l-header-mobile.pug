@@ -1,0 +1,35 @@
+.l-header-mobile.l-header-mobile--first.js-mobile-menu
+  .l-header-mobile_mask.js-mobile-menu-mask
+  .l-header-mobile_list.l-header-mobile_list--first
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link(href!="{{ url('homepage') }}") Portada
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link.js-item(data-key="second")
+        | Empresas participantes
+        +g-icon("g-icon-arrow_down1")
+    | {% if not auth.isLoggedIn() %}
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link.js-item.js-login-init(data-key="item" href="javascript:;", onclick!="{{ datalayer.createDataLayer('register_login', 'Login', 1, {'pagePath': app.request.uri})|raw }}") Ingresa
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link.js-item.js-register-init(data-key="item" href="javascript:;", onclick!="{{ datalayer.createDataLayer('register_login', 'Registro', 1, {'pagePath': app.request.uri})|raw }}")
+        | Regístrate
+    | {% else %}
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link(href="/auth/logout") Cerrar Sesión
+    | {% endif %}
+.l-header-mobile.l-header-mobile--second.js-mobile-menu
+  .l-header-mobile_mask.js-mobile-menu-mask
+  .l-header-mobile_list.l-header-mobile_list--second
+    li.l-header-mobile_list_item
+      a.l-header-mobile_list_item__link--rotate.js-menu-back(data-key="first" href="#")
+        +g-icon("g-icon-arrow_down1")
+        span.l-header-mobile_item_text Empresas participantes
+    | {% for company in fair.companiesJobHelper() %}
+    li.l-header-mobile_list_item
+      a(href!="{{ url('category_slug_jobs', {slug: company.slug }) }}", title!="{{ company.full_trade_name }}", onclick!="{{ datalayer.createDataLayer('pulldown', company.full_trade_name, 1, {'pagePath': app.request.uri})|raw }}")
+        span.l-header-mobile_item_text {{ company.trade_name }}
+    | {% else %}
+    li.l-header-mobile_list_item
+      a(href!="javascript:;")
+        span.l-header-mobile_item_text No hemos encontrado empresas.
+    | {% endfor %}

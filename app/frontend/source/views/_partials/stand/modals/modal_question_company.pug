@@ -1,0 +1,20 @@
+#modalQuestionCompany.g-modal.b-modal-question-company
+  .b-modal-question-company_logo
+    img(src!="{{ enterprise.logo }}", alt="")
+  .b-modal-question-company_ask.js-ask-company Ingresa el área de la empresa {{ enterprise.business_name }} en la que te gustaría trabajar:
+  form#frmModalQuestionCompany.b-modal-question-company_form
+    .g-form-box.b-modal-question-company_box
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            select#txtQuestion.b-modal-question-company_input(name="note", required)
+              option(value="") Seleccionar Área
+              | {% for area in base.areas() %}
+              option(id="{{area.id}}" value="{{area.name}}") {{area.name}}
+              | {% endfor %}
+    .b-modal-question-company_box-btn
+      button.g-btn.g-btn--blue.js-btn-cancel(type="button") Cancelar
+      button.g-btn.g-btn--white#btnSend(company-id!="{{ enterprise.id }}")
+        span.g-btn__label Enviar
+        span.g-btn__spinner
+

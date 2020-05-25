@@ -1,0 +1,46 @@
+header.l-header#header
+  .l-header_inner#headerInner
+    .u-center_box
+      .l-header_main
+        .l-header_main__left
+          a(href!="{{ url('homepage')}}", onclick!="{{ datalayer.createDataLayer('logo', 'Logo', 1, {'pagePath': app.request.uri})|raw }}")
+            img.l-header_logo(src="{{ asset('images/logo-top.svg') }}", alt="Expo Aptitus", height="47", width="235")
+        .l-header_main-list
+          ul.l-header_main__right
+            li.l-header_menu(class!="{{ app.request.get('_route') == 'companies' ? 'is-active' : '' }}")
+              .l-header_menu__wrapper
+                a.l-header_menu__link(href="#")
+                  span.l-header_title Empresas participantes
+                +g-icon("g-icon-arrow_down")
+              ul.l-header_menu__company
+                | {% for company in fair.companiesJobHelper() %}
+                li.l-header_menu__item
+                  a.l-header_company-name(href!="{{ url('category_slug_jobs', {slug: company.slug }) }}", title!="{{ company.full_trade_name }}", onclick!="{{ datalayer.createDataLayer('pulldown', company.full_trade_name, 1, {'pagePath': app.request.uri})|raw }}") {{ company.trade_name }}
+                | {% else %}
+                li.l-header_menu__item
+                  a.l-header_company-name(href!="javascript:;") No hemos encontrado empresas.
+                | {% endfor %}
+            | {% if not auth.isLoggedIn() %}
+            li.l-header_menu.l-header--blank
+              a.g-btn--white.js-login-init(onclick!="{{ datalayer.createDataLayer('register_login', 'Login', 1, {'pagePath': app.request.uri})|raw }}") Ingresa
+            li.l-header_menu.l-header--blue
+              a.g-btn--blue.js-register-init(onclick!="{{ datalayer.createDataLayer('register_login', 'Registro', 1, {'pagePath': app.request.uri})|raw }}")
+                span.l-header--margin Regístrate
+            | {% else %}
+            | {% set user = auth.getUser() %}
+        .l-header_main-logout
+          ul.l-header_main__right
+            li.l-header_menu.l-header_menu--session Hola, {{ user.firstName }}
+            li.l-header_menu.l-header_menu__logout
+              +g-icon("g-icon-person")
+              +g-icon("g-icon-arrow_down")
+              ul.l-header_nav-logout
+                li.l-header_nav-logout__item
+                  a(href!="{{ base.getAptitusHost() }}postulante/mi-perfil", target="_blank") Perfil Completo
+                li.l-header-middle-item
+                li.l-header_nav-logout__item
+                  a(href="/auth/logout", title="Cerrar Sesión") Cerrar Sesión
+            | {% endif %}
+        .l-header_sandwich.js-btn-mobile-menu(data-key="first")
+          +g-icon("g-icon-menu")
+include l-header-mobile

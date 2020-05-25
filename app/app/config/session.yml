@@ -1,0 +1,36 @@
+parameters:
+   app_session_expires: '%env(APP_SESSION_EXPIRES)%'
+   app_session_prefix:  '%env(APP_SESSION_PREFIX)%'
+
+   app_session_memcached_host:    '%env(APP_SESSION_MEMCACHED_HOST)%'
+   app_session_memcached_port:    '%env(APP_SESSION_MEMCACHED_PORT)%'
+
+   app_sso_session_memcached_host:   '%env(APP_SSO_SESSION_MEMCACHED_HOST)%'
+   app_sso_session_memcached_port:   '%env(APP_SSO_SESSION_MEMCACHED_PORT)%'
+
+services:
+
+   Memcache:
+      class: Memcache
+      calls:
+       - [ addServer, [ '%app_sso_session_memcached_host%', '%app_sso_session_memcached_port%', true, 1, 30, 10]]
+
+   Memcached:
+      class: Memcached
+      arguments: { $persistent_id: '%app_session_prefix%' }
+      calls:
+          - [ addServer, [ '%app_session_memcached_host%', '%app_session_memcached_port%' ]]
+
+   ## MemcacheD
+   app.session.handler.memcached:
+      class: Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcachedSessionHandler
+      arguments: ['@Memcached',  { prefix: '%app_session_prefix%', expiretime: '%app_session_expires%' }]
+
+   app.session.handler.memcache:
+      class: AppBundle\Auth\Session\Handler\MemcacheSessionHandler
+      arguments: ['@Memcache',  { prefix: '%app_session_prefix%', expiretime: '%app_session_expires%' }]
+
+
+   #session.handler.dynamo:
+   #   class: Acme\MemcacheHanlder
+   #   arguments: ['%foo%', '%bar%']

@@ -1,0 +1,58 @@
+.u-row.js-first-modal
+  .g-form-box_main-error.js-global-form-errors
+  .b-modal-register__subtitle.js-subtitle Verifica tus datos en 2 pasos y postula a las mejores ofertas laborales del ExpoAptitus
+  .b-modal-register__subtitle--blue Datos personales
+  #formPersonalData.g-form-box(data-index="personal_information")
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Nombre
+          input#name.js-field-serialize(type="text", name="name", maxlength="75", minlength="2", autocomplete="off")
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Apellidos
+          input#lastname.js-field-serialize(type="text", name="last_name", maxlength="57", minlength="5", autocomplete="off", required)
+    .g-form-box_row
+      fieldset.g-form-box_fieldset.js-fieldset.is-disabled
+        label.g-form-box__label Email
+        input#email.js-field-serialize(type="email", name="email", maxlength="75", required, disabled, autocomplete="off")
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Fecha de Nacimiento
+          input#txtBirthDay.js-field-serialize(type="text", placeholder="dd/mm/aaaa", name="birth_date", minyear="1917", maxyear="1999", autocomplete="off", required)
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label celular
+          input#phoneNumber.js-field-serialize(type="text", name="cellphone", value="", maxlength="12", minlength="9", autocomplete="off", required)
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Género
+          select#selGenero.js-field-serialize(name="gender", required)
+            option(value="M", label="Masculino") Masculino
+            option(value="F", label="Femenino") Femenino
+      .g-form-box_col6.g-form-box__field
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+          select#selDocument.js-field-serialize(name="doc_type", required)
+            option(value="dni", label="DNI") DNI
+            option(value="ce", label="Carnet Extranjería") Carnet Extranjería
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_right.js-fieldset
+          input#txtNumberDoc.g-form-box-doc__box.js-field-serialize(placeholder="00000000", type="text", name="doc_number", maxlength="8", minlength="8", autocomplete="off", required)
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label País
+          select#selCountry.js-field-serialize(name="country_id", required)
+            |{% for country in base.countries() %}
+            option(value!="{{country.id}}", label!="{{country.name}}") {{country.name}}
+            |{% endfor %}
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Ubicación
+          input#txtUbigeo.js-autocomplete-locations(type="text", name="location", value="", maxlength="150", minlength="2", placeholder="Distrito, provincia o dpto", autocomplete="off", required)
+          input#txtIdUbicacion.js-locations-id.js-field-serialize(type="hidden", name="location_id", value="")
+  .b-modal-register_buttons.b-modal-register_buttons-first
+    a.g-btn.g-btn--blue.js-btn-next(href="javascript:;")
+      span.g-btn__label Siguiente
+      span.g-btn__spinner

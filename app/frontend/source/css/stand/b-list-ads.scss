@@ -1,0 +1,75 @@
+.b-list-ads {
+  &_title {
+    background: $blue;
+    border-radius: 5px 5px 0 0;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &_box {
+    border-bottom: 1px solid $grayLine;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    padding: 15px 10px 15px;
+    &:hover {
+      background: #ecebe9;
+    }
+  }
+  &_name {
+    color: $blue;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-break: break-word;
+  }
+  &_company {
+    font-family: $familySans;
+    margin: 5px 0;
+    text-transform: uppercase;
+  }
+  &_features {
+    display: flex;
+    font-family: $familySans;
+    font-size: 13px;
+    margin: 5px 0;
+    .g-icon {
+      height: 15px;
+      width: 15px;
+    }
+  }
+  &_features-left {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 250px);
+  }
+  &_features-right {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    width: 250px;
+  }
+  &_ubication,
+  &_category {
+    width: 300px;
+    display: flex;
+  }
+  &_ubication {
+    justify-content: flex-start;
+    .g-icon {
+      margin-right: 10px;
+    }
+  }
+  &_category {
+    justify-content: flex-start;
+  }
+  &_category-name {
+    margin-left: 10px;
+  }
+}
+
+
+

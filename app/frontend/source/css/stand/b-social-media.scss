@@ -1,0 +1,23 @@
+.b-social-media {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  text-align: left;
+  &_container {
+    display: flex;
+  }
+  &__text {
+    color: $gray;
+    font-size: 15px;
+    margin: 7px 10px 0px;
+  }
+  &__link {
+    height: 32px;
+    margin: 0 6px;
+  }
+  .g-icon {
+    fill: $gray;
+    height: 32px;
+    width: 32px;
+  }
+}

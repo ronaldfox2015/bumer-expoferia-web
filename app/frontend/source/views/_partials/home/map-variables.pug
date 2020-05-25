@@ -1,0 +1,11 @@
+map.js-map(name="map", data-version="desktop")
+  | {% for company in front_companies %}
+  area(
+  shape="poly",
+  coords!="{{ company.mapping }}",
+  href!="{{ url('category_slug_jobs', {slug: company.slug }) }}",
+  data-rel!="stand{{ company.id }}",
+  onclick!="{{ datalayer.createDataLayer('company', company.trade_name, 1, {'pagePath': app.request.uri, 'companySlug': company.slug })|raw }}"
+  )
+  | {% endfor %}
+  //- area(shape="poly", coords="1361,116,1388,101,1433,100,1487,122,1493,122,1505,115,1505,135,1520,136,1507,143,1505,150,1508,162,1491,154,1460,161,1456,169,1437,168,1431,160,1384,151,1359,132,1360,117", href="https://goo.gl/5Qoysz", target="_blank", data-rel!="stand100", onclick!="{{ datalayer.createDataLayer('zeppelin', 'Ripley', 1, {'pagePath': app.request.uri })|raw }}")

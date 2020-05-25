@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  nginx:
+    volumes:
+      - ./app/:/app/
+      - ./config/:/config
+      - ./logs/nginx/:/var/log/nginx/
+    extra_hosts:
+      - "local.services.aptitus.com:127.0.0.1"
+    ports:
+      - 80:80
+
+  memcached:
+    ports:
+      - 11212:11211

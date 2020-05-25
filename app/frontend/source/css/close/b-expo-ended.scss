@@ -1,0 +1,108 @@
+.b-expo-ended {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  &_inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    width: 800px;
+  }
+  &_title {
+    color: #000;
+    font-family: $familySans;
+    font-size: 26px;
+    margin-bottom: 4vh;
+  }
+  &_wrapper-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &_logo-apt {
+    height: 22px;
+    margin-left: 8px;
+  }
+  &_content-slogan {
+    display: flex;
+  }
+  &_subtitle {
+    color: #9b9b9b;
+    font-size: 19px;
+  }
+  &_phrase {
+    align-self: center;
+    color: #000;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+    width: 158px;
+  }
+  &_search {
+    margin-top: 4vh;
+    .g-btn {
+      font-family: $familyDefault;
+      height: 36px;
+      line-height: 36px;
+      margin-top: 5vh;
+      padding: 0 37px;
+    }
+  }
+  &_search-message {
+    color: #000;
+    font-size: 18px;
+    font-family: $familySans;
+    &__slogan {
+      margin: 0 auto;
+      padding-top: 4px;
+    }
+  }
+  &_search-message:last-child {
+    padding-left: 5px;
+  }
+  &_hide {
+    display: none;
+  }
+  &_list {
+    display: flex;
+    justify-content: space-around;
+  }
+  &_list-item {
+    padding-top: 20px;
+    width: 200px;
+    .g-icon {
+      fill: #68696a;
+      height: 60px;
+      margin-bottom: 10px;
+      width: 60px;
+    }
+  }
+  &_text {
+    display: inline-block;
+  }
+  &_box-message {
+    height: calc(100% - 85vh);
+  }
+  &_message {
+    color: #000;
+    padding: 40px 10px;
+    text-align: center;
+  }
+  &_message-title {
+    font-family: $familySans;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 10px;
+  }
+  &_message-subtitle {
+    font-family: $familySans;
+  }
+}

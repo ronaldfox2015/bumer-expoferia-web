@@ -1,0 +1,36 @@
+/* Paths */
+$imgPath : "images/";
+$fontPath: "fonts/";
+
+/* font family variables */
+$familyDefault: "museo300-webfont" ,"arial", "sans-serif";
+$familyBold   : "museo500-webfont" ,"arial", "sans-serif";
+$familySans   : "museoSans-webfont" ,"arial", "sans-serif";
+$basefont     : 14px;
+$tabletfont   : 13px;
+$mobilefont   : 15px;
+
+/* Colors */
+$blue           : #045584;
+$blueHover      : #04304A;
+$skyblueHover   : #008EE3;
+$pink           : #F21651;
+$pinkHover      : #D21044;
+$green          : #00C617;
+$greenHover     : #07B01B;
+$aptSkyblue     : #3798CF;
+$aptSkyblueHover: #1F78AB;
+$grayLine       : #cccccc;
+$skyblue        : #3088C8;
+$black          : #040405;
+$darkblue       : #3B5997;
+$sky            : #54ACED;
+$red            : #DB4D41;
+$gray           : #BEC1C6;
+$jade           : #007AAA;
+$paginatorColor : #ffffff;
+
+
+/* Breakpoints */
+$mobile: max-width 414px;
+$tablet: 414px 1050px;

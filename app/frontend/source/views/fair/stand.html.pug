@@ -1,0 +1,107 @@
+extends ../_layout/base.pug
+
+block eplanning
+  +script-eplanning({sec:"Descargables",eIs:"['Middle']"})
+
+block stylesheets
+  link(rel='stylesheet', type='text/css', href!="{{ asset('stand.css') }}")
+
+block modals
+  include ../_partials/stand/modals/_modals.pug
+
+block content
+  section.b-stand
+    include ./../_partials/stand/includes/navigation-option.pug
+    .u-center_box
+      .g-navigation.g-navigation--stand
+        .g-navigation_name-company
+          h1.g-navigation_name-company__text.js-name-company {{ company.trade_name }}
+      .b-stand-mobile
+        .b-stand-mobile_box-image.u-center-image
+          img.b-stand_mobile-logo(src!='{{ company.logo }}' alt!='{{ company.trade_name }}' title!='{{ company.trade_name }}' onerror!="this.src = '{{ asset('/images/image-not-found.jpg') }}';" )
+        .b-stand-mobile_company
+          .b-stand-mobile_title {{ company.trade_name }}
+          | {% if company.show_more_information %}
+          .b-stand-mobile_view-information.js-show-aside
+            a.b-stand-mobile_link.js-change-text(href="javascript:;") Ver más información
+          | {% endif %}
+    .b-stand_mobile
+      .b-stand_image-background(class!="b-stand_image-background--offer-employ")
+      .b-stand_image-buildings
+      .b-stand_container
+        .b-stand_link.js-container-canvas(data-id-user!="{{ auth.isLoggedIn() ? auth.getUser().id : '0' }}")
+          canvas.b-stand_canvas.js-stand_canvas
+        .g-spinner.js-canvas-loader
+          .g-spinner__rect1
+          .g-spinner__rect2
+          .g-spinner__rect3
+          .g-spinner__rect4
+          .g-spinner__rect5
+  section.b-features-company.js-content-features
+    section.b-nav-features.js-content-aside(class!="b-nav-features--offer-employ")
+      .b-nav-features_inner
+        .u-center_box
+          .b-nav-features_main.u-row
+            .b-nav-features_column.b-nav-features_column--social
+              | {% if not company.social_media is empty %}
+              .b-social-media
+                span.b-social-media__text Síguenos en:
+                div.b-social-media_container
+                  | {% for social in company.social_media %}
+                  | {% if social.name == "Facebook" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Facebook', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-facebook_square")
+                  | {% endif %}
+
+                  | {% if social.name == "Twitter" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Twitter', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-twitter_square")
+                  | {% endif %}
+
+                  | {% if social.name == "Linkedin" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Linkedin', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-linkedin_square")
+                  | {% endif %}
+
+                  | {% if social.name == "Youtube" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Youtube', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-youtube_square")
+                  | {% endif %}
+
+                  | {% if social.name == "Instagram" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Instagram', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-instagram_square")
+                  | {% endif %}
+
+                  | {% if social.name == "Pinterest" %}
+                  a.b-social-media__link(href!="{{social.link}}", target="_blank", onclick!="{{ datalayer.createDataLayer('rrss', 'Pinterest', 1, {'companySlug': company.slug})|raw }}")
+                    +g-icon("g-icon-pinterest_square")
+                  | {% endif %}
+
+                  | {% endfor %}
+
+              | {% endif %}
+
+            include ./../_partials/stand/includes/nav-features.pug
+
+    section.b-ads-company.u-center_box.js-content-ads
+      .b-tabs-content.js-tabs-parent
+        .b-tabs-content_box.js-tab-content.is-active(id="avisos")
+          include ./../_partials/stand/includes/b-offers-list.pug
+        .b-tabs-content_box.js-tab-content(id="perfil-institucional")
+          include ./../_partials/stand/includes/b-more-information-mobile
+        | {% if company.image_gallery is not empty %}
+        .b-tabs-content_box.js-tab-content(id="galeria")
+          include ./../_partials/stand/includes/b-image-gallery.pug
+        | {% endif %}
+        | {% if company.document is not empty %}
+        .b-tabs-content_box.js-tab-content(id="documentos-descargables")
+          include ./../_partials/stand/includes/b-downloadable-files.pug
+        | {% endif %}
+
+block scripts
+  script(src!="{{ asset('stand.js') }}", defer)
+  | {% if stand is defined %}
+  script
+   | var CONFIG = {{ stand | json_encode() | raw }};
+  | {% endif %}

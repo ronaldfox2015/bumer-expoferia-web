@@ -1,0 +1,9 @@
+.g-eplanning {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  overflow: hidden;
+  &--middle {
+    margin: 30px 0;
+  }
+}

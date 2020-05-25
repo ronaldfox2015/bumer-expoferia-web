@@ -1,0 +1,18 @@
+.b-image-gallery
+  .b-image-gallery_buttons
+    button.b-image-gallery_slider-btn-prev.js-image-gallery_slider-btn-prev
+      +g-icon("g-icon-circle-arrow-left")
+    button.b-image-gallery_slider-btn-next.js-image-gallery_slider-btn-next
+      +g-icon("g-icon-circle-arrow-right")
+  .b-image-gallery_slider-for.u-row.js-image-gallery_slider-for
+    | {% for image in company.image_gallery %}
+    .b-image-gallery_main-slide
+      .u-center-image
+        img(src!="{{ image.link }}")
+    | {% endfor %}
+  .b-image-gallery_slider-nav.u-row.js-image-gallery_slider-nav
+    | {% for image in company.image_gallery %}
+    .b-image-gallery_tiny-slide
+      .u-center-image
+        img(src!="{{ image.link }}")
+    | {% endfor %}

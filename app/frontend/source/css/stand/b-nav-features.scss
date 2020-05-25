@@ -1,0 +1,56 @@
+// Nav-Features//
+.b-nav-features {
+  font-family: $familyBold;
+  position: relative;
+  &_inner {
+    box-shadow: 0px 2px 5px #CDCDCD;
+    width: 100%;
+  }
+  &_main {
+    width: 100%;
+  }
+  &_container-tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 18px;
+    min-width: 430px;
+    overflow: hidden;
+    .is-active{
+      border-bottom: 1px solid $blue;
+      cursor: default;
+    }
+  }
+  &_content-mobile {
+    display: none;
+  }
+  &_column {
+    float: right;
+    overflow: hidden;
+    &--social {
+      margin-top: 5px;
+      width: 425px;
+    }
+    &--slider {
+      text-align: left;
+      width: calc(100% - 425px)
+    }
+  }
+  &_items {
+    color: $blue;
+    display: inline-block;
+    margin: 17px 14px;
+    vertical-align: middle;
+    &:hover{
+      cursor: pointer;
+    }
+    &--mobile {
+      display: none;
+    }
+  }
+  &.is-active {
+    position: relative;
+  }
+  &.is-hidden {
+    display: none;
+  }
+}

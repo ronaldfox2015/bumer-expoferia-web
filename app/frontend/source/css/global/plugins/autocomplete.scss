@@ -1,0 +1,23 @@
+/*Auto complete*/
+
+.ui-autocomplete {
+  background: #fff;
+  border: 1px solid #d2d2d2;
+  left: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-x: hidden;
+  padding: 0;
+  z-index: 100000;
+}
+.ui-menu-item {
+  cursor: pointer;
+  padding: 0 10px;
+  &:hover{
+    background: #c9e6f9;
+  }
+}
+.ui-menu-item-wrapper {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 5px 0;
+}

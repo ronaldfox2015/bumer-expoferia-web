@@ -1,0 +1,37 @@
+.b-modal-confirmation {
+  background: #fff;
+  text-align: center;
+  width: 464px;
+  &_head {
+    margin-top: 30px;
+  }
+  &__title {
+    color: #0e5682;
+    font-size: 22px;
+    padding: 20px;
+    text-align: center;
+  }
+  &_body {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+  &__subtitle {
+    font-size: 15px;
+    margin-top: 15px;
+  }
+  &__text {
+    font-size: 15px;
+    margin-top: 15px;
+    &--link {
+      color: $skyblue;
+      text-decoration: underline;
+    }
+  }
+  &_bottom {
+    margin-bottom: 30px;
+    .g-btn__label {
+      font-size: 20px;
+    }
+  }
+}

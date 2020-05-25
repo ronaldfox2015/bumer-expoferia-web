@@ -1,0 +1,52 @@
+.b-nav-features_column.b-nav-features_column--slider
+  ul.b-nav-features_container-tabs.js-container-tabs
+    li.b-nav-features_items.b-nav-features_items--desktop
+      .b-nav-features_items-name.js-tab-link.is-active(
+      data-key    = "avisos",
+      data-url   != "{{ path('category_slug_jobs',  {'slug': company.slug })}}",
+      data-title != "{{ titles.avisos }}",
+      onclick != "{{ datalayer.createDataLayer('info', 'Trabajos', 1, {'companySlug': company.slug})|raw }}") Trabajos
+    | {% if is_mobile() %}
+    | {% if company.stand.video %}
+    li.b-nav-features_items.b-nav-features_items--mobile
+      .b-nav-features_items-name Video
+      .b-nav-features_content-mobile
+        include ./b-view-video-mobile
+    | {% endif %}
+    | {% endif %}
+    | {% if not ( company.profile is empty and company.latitude is empty and company.longitude is empty ) %}
+    li.b-nav-features_items
+      .b-nav-features_items-name.js-tab-link(
+      data-key    = "perfil-institucional",
+      data-url   != "{{ path('jobs_company_perfil', {'slug': company.slug })}}",
+      data-title != "{{ titles.perfil }}",
+      onclick != "{{ datalayer.createDataLayer('info', 'Empresa', 1, {'companySlug': company.slug})|raw }}") Empresa
+      | {% if is_mobile() %}
+      .b-nav-features_content-mobile
+        include ./b-more-information-mobile
+      | {% endif %}
+    | {% endif %}
+
+    | {% if company.image_gallery is not empty %}
+    li.b-nav-features_items
+      .b-nav-features_items-name.js-tab-link(
+      data-key="galeria",
+      data-show="false",
+      data-url   != "{{ path('jobs_company_galeria', {'slug': company.slug })}}",
+      data-title != "{{ titles.galeria }}",
+      onclick != "{{ datalayer.createDataLayer('info', 'Imágenes', 1, {'companySlug': company.slug})|raw }}") Imágenes
+      | {% if is_mobile() %}
+      .b-nav-features_content-mobile
+        include ./b-image-gallery.pug
+      | {% endif %}
+    | {% endif %}
+
+    | {% if company.document is not empty %}
+    li.b-nav-features_items.b-nav-features_items--desktop
+      .b-nav-features_items-name.js-tab-link(
+      data-key    = "documentos-descargables",
+      data-url   != "{{ path('jobs_company_documentos', {'slug': company.slug })}}",
+      data-title != "{{ titles.documentos }}",
+      onclick != "{{ datalayer.createDataLayer('info', 'Descargables', 1, {'companySlug': company.slug})|raw }}") Descargables
+    | {% endif %}
+

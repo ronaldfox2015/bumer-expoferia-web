@@ -1,0 +1,39 @@
+.g-spinner {
+  font-size: 10px;
+  height: 40px;
+  margin: 100px auto;
+  text-align: center;
+  width: 50px;
+}
+
+.g-spinner > div {
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  background-color: #235071;
+  display: inline-block;
+  height: 100%;
+  margin: 0 1px;
+  width: 6px;
+}
+
+.g-spinner {
+  .g-spinner__rect2 {
+    animation-delay: -1.1s;
+  }
+  .g-spinner__rect3 {
+    animation-delay: -1.0s;
+  }
+  .g-spinner__rect4 {
+    animation-delay: -0.9s;
+  }
+  .g-spinner__rect5 {
+    animation-delay: -0.8s;
+  }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  } 20% {
+    transform: scaleY(1.0);
+  }
+}

@@ -1,0 +1,50 @@
+//Stand//
+.b-stand {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  &_image-background {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    &--offer-study {
+      background: black url($imgPath + "bg_stand_study.jpg") repeat-x;
+    }
+    &--offer-employ {
+      background: #113557 url($imgPath + "bg_stand.jpg") repeat-x;
+    }
+  }
+  &_image-buildings {
+    background-image: url($imgPath + "bg_buildings.jpg");
+    background-size: cover;
+    height: 191px;
+    left: 150px;
+    position: absolute;
+    top: 234px;
+    width: 1174px;
+  }
+  &_container {
+    min-height: 543px;
+    margin: 60px 0 25px 0;
+    text-align: center;
+    .g-spinner {
+      position: absolute;
+      top: 38px;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+  &_canvas {
+    position: relative;
+    z-index: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.b-stand-mobile {
+  display: none
+}

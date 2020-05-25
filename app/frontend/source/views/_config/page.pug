@@ -1,0 +1,34 @@
+- var page = {}
+
+- page.url             = {}
+- page.url.base        = "{{ app.request.uri }}"
+
+- page.viewport       = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+- page.robots         = 'index,follow'
+
+- page.title           = "{{ page_title is defined ? (page_title ~ ' | ExpoAptitus 2019') : 'ExpoAptitus 2019 - La feria virtual de trabajo más grande del Perú' }}"
+- page.charset         = 'utf-8'
+- page.lang            = 'es'
+- page.description     = "{{ page_description is defined ? page_description : 'Feria Virtual de Aptitus' }}"
+- page.keywords        = ""
+- page.author          = 'APTiTUS.com'
+- page.name            = 'ExpoAptitus'
+
+- page.og              = {}
+- page.og.image        = "{{ asset('/images/logo-fb.jpg') }}"
+- page.og.description  = "{{ page_fb_description is defined ? page_fb_description : 'Feria Virtual de Aptitus' }}"
+- page.tw_description  = "{{ page_tw_description is defined ? page_tw_description : 'Feria Virtual de Aptitus'}}"
+- page.og.title        = "{{ page_fb_title is defined ? page_fb_title : 'ExpoAptitus 2019' }}"
+- page.og.image_height = "250"
+- page.og.image_type   = "image/jpg"
+- page.og.image_width  = "250"
+- page.og.type         = 'article'
+
+- page.geo             = {}
+- page.geo.ICBM        = '-12.0478, -77.0622'
+- page.geo.placename   = 'Peru'
+- page.geo.position    = '-12.0478;-77.0622'
+- page.geo.region      = 'PE-LIM'
+- page.code_tracking   = "UA-54051215-1"
+
+- var central_ayuda = "https://centraldeayuda.maseducacion.com"

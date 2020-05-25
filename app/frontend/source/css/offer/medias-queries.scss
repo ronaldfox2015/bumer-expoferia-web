@@ -1,0 +1,25 @@
+@media (max-width: 834px) {
+  .b-offer {
+    &_navigation-mobile {
+      display: block;
+      .g-navigation_button {
+        background: transparent;
+        opacity: 1;
+        top: -14px;
+        .g-icon {
+          fill: $blue;
+          height: 35px;
+        }
+        &:hover {
+          background: transparent;
+        }
+      }
+      .g-navigation_button--right {
+        left: 0;
+      }
+    }
+    &_navigation {
+      display: none;
+    }
+  }
+}

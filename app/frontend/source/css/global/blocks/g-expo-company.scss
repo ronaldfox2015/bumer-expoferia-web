@@ -1,0 +1,96 @@
+.g-expo-company {
+  background: #fff;
+  font-family: $familySans;
+  position: relative;
+  &_box-image {
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    > img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  &_wrapper-image {
+    &--mobile {
+      .g-expo-company_image {
+        display: none;
+      }
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      height: 135px;
+      position: absolute;
+      top: 0;
+      width: 180px;
+      width: 200px;
+    }
+    &--tablet {
+      display: none;
+    }
+  }
+  &_text-mobile {
+    display: none;
+    font-size: 16px;
+  }
+  &_text-down {
+    bottom: 10px;
+    font-family: $familySans;
+    font-size: 13px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 153px;
+    &_mobile {
+      display: none;
+    }
+  }
+  &_image {
+    left: 50%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0%;
+    transform: translate(-50%, 0%);
+    &.is-blured {
+      filter: blur(6px);
+    }
+  }
+  &_logo-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+  &_logo-feria {
+    height: 73px;
+    margin-bottom: 30px;
+  }
+  &_translate {
+    background: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    bottom: -42px;
+    box-shadow: 4px 0 12px gray;
+    height: 84px;
+    left: 50%;
+    margin-left: -42px;
+    padding-top: 10px;
+    position: absolute;
+    width: 84px;
+    z-index: 1;
+    .g-icon {
+      fill: $blue;
+      height: 40px;
+      width: 40px;
+    }
+    .g-icon-left_arrow {
+      display: none;
+    }
+  }
+}

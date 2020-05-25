@@ -1,0 +1,22 @@
+.g-flash {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  word-wrap: break-word;
+  &--success {
+    background: #27ae60;
+  }
+  &--error {
+    background: #D66054;
+  }
+  /* El elemento "a" viene del API*/
+  a {
+    text-decoration: underline;
+  }
+}
+
+.l-main-body > .g-flash {
+  margin-bottom: 0;
+  text-align: center;
+}

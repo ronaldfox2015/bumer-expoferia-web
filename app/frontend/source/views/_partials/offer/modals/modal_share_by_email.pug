@@ -1,0 +1,31 @@
+#modalShareEmail.g-modal.b-modal-share-email
+  .g-modal_title.js-title Comparte por email
+  form#frmModalShareEmail.js-form-valide.b-modal-share-email_form(method="post", action="/")
+    .g-form-box.g-form-box--fair
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label(for="txtSenderName") Nombre de Emisor
+            | {% set user = auth.getUser() %}
+            input#txtSenderName(type="text", name="txtSenderName", maxlength="75", minlength="2", value="{{ user is empty ? '' : user.firstName }}", required)
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label(for="txtName") Nombre Destinatario
+            input#txtName(type="text", name="txtName", maxlength="75", minlength="2", required)
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label(for="txtEmail") Email Destinatario
+            input#txtEmail(type="email", name="txtEmail", maxlength="75", required)
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label(for="txtMessage") Mensaje
+            textarea#txtMessage(name="txtMessage", maxlength="500", required)
+    input(type="hidden", name="url", value="{{ data.url }}/compartir")
+    .g-modal_btn-container
+      button.g-btn.g-btn--blue.js-cancel(type="button") Cancelar
+      button#btnSaveShareBox.g-btn.g-btn--white
+        span.g-btn__label Enviar
+        span.g-btn__spinner

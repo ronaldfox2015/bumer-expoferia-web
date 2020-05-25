@@ -1,0 +1,98 @@
+.u-row.g-form-box--hide.js-second-modal
+  .g-form-box_main-error.js-global-form-errors
+  .b-modal-register__subtitle--blue Último estudio
+  .b-modal-register__error.js-subtitle-study
+  #formLastStudy.g-form-box(data-index="study")
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Grado
+          select#grade.js-grade.js-field-serialize(name="grade_id", required)
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Estado
+          select#state.js-state.js-field-serialize.g-select-pretty(name="state_id", required)
+            option(value="default") Selecciona un estado
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Institución
+          input#institution.js-institution.js-autocomplete-institution(name="institution_txt", type="text", data-autocomplete="", value="", autocomplete="off", required)
+          input#institutionId.js-institution-id.js-field-serialize(type="hidden", name="institution_id", value="")
+          input.js-institution-txt.js-field-serialize(type="hidden", name="institution", value="")
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Carrera
+          input#career.js-career(type="text", name="career_txt", maxlength="75", minlength="6", autocomplete="off", required)
+          input#careerId.js-career-id.js-field-serialize(type="hidden", name="career_id", value="")
+          input.js-career-txt.js-field-serialize(type="hidden", name="career", value="")
+    .g-form-box_row
+      .g-form-box_col6.js-date-range.js-section-date
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+          label.g-form-box__label Fecha inicio
+          input#dateStartStudy.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="study_date_start", minyear="1917", data-date="start", autocomplete="off", required)
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+          label.g-form-box__label Fecha fin
+          input#dateEndStudy.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="study_date_end", minyear="1917", data-date="end", autocomplete="off")
+      .g-form-box_col6.js-container-disable
+        fieldset.g-form-box_fieldset.g-form-box__check.js-fieldset
+          input#currentStudy.js-field-serialize.js-disable-end-date(type="checkbox", name="currently_studying")
+          label.b-modal-register__label(for="currentStudy") Estudia actualmente
+  .b-modal-register__subtitle--blue Última experiencia laboral
+  .b-modal-register__error.js-subtitle-job
+  #formLastJob.b-modal-register__experience(data-index="experience")
+    .u-row
+      input#notExperience.js-field-serialize(type="checkbox", name="has_experience")
+      label.b-modal-register__label(for="notExperience") Sin experiencia laboral
+    #formJob.g-form-box
+      .g-form-box_row
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Empresa
+            input#company.js-field-serialize.is-edit(type="text", name="company", maxlength="75", minlength="3", autocomplete="off", required)
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Industria
+            input#industry.js-field-serialize.is-edit(type="text", name="industry", value="", autocomplete="off", required)
+      .g-form-box_row
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Puesto
+            input#position.is-edit.js-position(type="text", maxlength="75", autocomplete="off", required)
+            input.js-position-id.js-field-serialize(type="hidden", name="job_id", value="")
+            input.js-position-txt.js-field-serialize(type="hidden", name="job", value="")
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Nivel de puesto
+            select#level.js-level.is-edit.js-field-serialize(name="level_id", required)
+      .g-form-box_row.js-section-date
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Área
+            select#area.js-area.is-edit.js-field-serialize(name="area_id", required)
+        .g-form-box_col6.js-date-range
+          fieldset.g-form-box_fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+            label.g-form-box__label Fecha inicio
+            input#dateStartExperience.is-edit.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="experience_date_start", minyear="1917", data-date="start", required)
+          fieldset.g-form-box_fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+            label.g-form-box__label Fecha fin
+            input#dateEndExperience.is-edit.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="experience_date_end", minyear="1917", data-date="end")
+      .g-form-box_row.js-container-disable
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.g-form-box__check.js-fieldset
+            input#current_work.is-edit.js-field-serialize.js-disable-end-date(type="checkbox", name="currently_working")
+            label.b-modal-register__label(for="current_work") Trabaja actualmente
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Descripción
+            textarea#description.g-form-box__textarea.is-edit.js-field-serialize(type="text", name="description", maxlength="1500", required)
+    .b-modal-register_conditions
+      .b-modal-register_conditions__accounts Al crear una cuenta aceptas estar de acuerdo con nuestras
+        a.b-modal-register_conditions__link-policies(href="http://centraldeayuda.aptitus.com/forums/20710432-Terminos-y-Condiciones-de-Aptitus", target="_blank") Políticas de privacidad, términos y condiciones
+  .b-modal-register_buttons
+    button.g-btn.g-btn--gray.js-btn-prev(type="button")
+      span.g-btn__label Anterior
+    button.g-btn.g-btn--blue#btnRegisterUser()
+      span.g-btn__label Crear cuenta
+      span.g-btn__spinner

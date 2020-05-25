@@ -1,0 +1,15 @@
+#modalRegisterConfirmation.g-modal.js-modal.b-modal-confirmation
+  .b-modal-confirmation_head
+    .b-modal-confirmation__image
+      img(src="{{ asset('images/logo-modal-confirm.png') }}")
+    .b-modal-confirmation__title ¡Felicitaciones!
+  .b-modal-confirmation_body
+    .b-modal-confirmation__subtitle Tus datos fueron registrados con éxito
+    .b-modal-confirmation__text
+      | Te recomendamos&nbsp;
+      a.b-modal-confirmation__text--link.js-link-account(href!="{{ base.getAptitusHost() }}postulante/mi-perfil") completar tu CV
+      | &nbsp;a través de aptitus.com para aumentar tus posibilidades de ser contratado
+  .b-modal-confirmation_bottom
+    a.g-btn.g-btn--blue#btnSession(href="javascript:;")
+      span.g-btn__label Continuar en Feria
+      span.g-btn__spinner

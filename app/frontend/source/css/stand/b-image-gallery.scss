@@ -1,0 +1,64 @@
+.b-image-gallery {
+  margin: 0 auto;
+  max-width: 940px;
+  &_buttons {
+    display: none;
+  }
+  &_slider-btn-prev, &_slider-btn-next {
+    background: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 70px;
+    line-height: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 70px;
+    z-index: 1;
+    .g-icon {
+      fill: rgba(0, 0, 0, 0.53);
+      height: inherit;
+      width: inherit;
+    }
+  }
+  &_slider-btn-next {
+    right: 10px;
+  }
+  &_slider-btn-prev {
+    left: 10px;
+  }
+  &_slider-for {
+    height: 400px;
+    overflow: hidden;
+  }
+  &_slider-nav {
+    margin-top: 10px;
+    &.slick-slider .slick-list {
+      margin: 0 50px;
+      padding: 0 !important;
+    }
+    &.slick-slider .slick-track {
+      margin: 0 auto;
+    }
+  }
+  &_main-slide {
+    float: left;
+    height: 400px;
+    width: 100%;
+  }
+  &_tiny-slide {
+    float: left;
+    height: 118px;
+    margin: 0 10px;
+    width: 140px;
+  }
+  .u-center-image {
+    height: inherit;
+    width: inherit;
+  }
+}

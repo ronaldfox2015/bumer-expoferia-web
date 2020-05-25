@@ -1,0 +1,28 @@
+@mixin button_link ($bg, $color, $radius){
+  background: $bg;
+  border-radius: $radius;
+  color: $color;
+  padding: 0px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+  transition: background 0.2s ease-in-out;
+}
+
+@mixin hover ($bg, $color){
+  background: $bg;
+  color: $color;
+}
+
+@mixin icon ($bg, $width, $height){
+  fill: $bg;
+  height: $height;
+  width: $width;
+}
+
+@mixin prev-next($orientation) {
+  border-bottom-#{$orientation}-radius: 10px;
+  border-top-#{$orientation}-radius: 10px;
+  border-#{$orientation}: 1px solid $grayLine;
+}

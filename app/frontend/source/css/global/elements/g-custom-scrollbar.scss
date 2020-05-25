@@ -1,0 +1,26 @@
+.g-custom-scrollbar {
+  &_item {
+    margin-right: 16px;
+  }
+  ::-webkit-scrollbar {
+    padding-left: 18px;
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track-piece {
+    background: #ddd;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: $blue;
+    border: 0;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    border: 0;
+    background: #aaa;
+  }
+}

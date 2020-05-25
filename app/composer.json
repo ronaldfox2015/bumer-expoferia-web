@@ -1,0 +1,83 @@
+{
+    "name": "orbisunt/expoferia-web",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "aws/aws-sdk-php-symfony": "^1.2",
+        "eightpoints/guzzle-bundle": "5.3",
+        "facebook/graph-sdk": "^5.5",
+        "firebase/php-jwt": "^5.0",
+        "google/recaptcha": "^1.1",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "orbisunt/aptitus-core": "dev-dev4a",
+        "sensio/distribution-bundle": "^5.0.19",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "suncat/mobile-detect-bundle": "^1.0",
+        "symfony/dotenv": "^3.3",
+        "symfony/monolog-bundle": "^3.1.0",
+        "symfony/symfony": "3.3.*",
+        "twig/twig": "^1.0||^2.0"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^3.0",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "scripts": {
+        "cache:clear": "php bin/console cache:clear --no-warmup",
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ],
+        "cs": "phpcs",
+        "cs-fix": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": null
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@bitbucket.org:orbisunt/aptitus-core.git"
+        }
+    ]
+}

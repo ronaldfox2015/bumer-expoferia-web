@@ -1,0 +1,148 @@
+.b-offers-list {
+  &_search {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    text-align: right;
+    &_wrap {
+      display: flex;
+      transition: border-bottom 0.3s ease-in;
+      width: 272px;
+      &:active {
+        border-bottom: 1px solid #121212;
+      }
+      &_input {
+        border: 1px solid $grayLine;
+        border-radius: 5px 0  0 5px;
+        font-family: $familyDefault;
+        padding: 10px 15px;
+        width: 100%;
+      }
+      &_button {
+        background: $skyblue;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        padding: 0 8px;
+        .g-icon {
+          fill: #ffffff;
+          height: 25px;
+          width: 25px;
+        }
+      }
+    }
+  }
+  &_empty {
+    font-size: 17px;
+    padding: 30px 0;
+    text-align: center;
+  }
+  &__link {
+    text-decoration: underline;
+  }
+  &_footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    .g-btn {
+      font-family: $familyBold;
+      padding: 0 20px;
+      width: 109px;
+    }
+  }
+  &_mobile {
+    display: none;
+  }
+  .g-table {
+    &_header {
+      &_row {
+        &_cell {
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+    &_body {
+      &_row {
+        &_cell {
+          line-height: 14px;
+          text-align: center;
+          &:first-child {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  @include breakpoint(max-width 600px) {
+    margin: 0;
+    &_search {
+      padding: 0 10px;
+      &_wrap {
+        width: 100%;
+      }
+    }
+    &_mobile {
+      display: block;
+      &_offer {
+        margin-bottom: 20px;
+        width: 100%;
+        &_header {
+          align-items: center;
+          background: #e3e3e3;
+          font-family: $familyBold;
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+        }
+        &_body {
+          align-items: center;
+          background: #f7f7f7;
+          display: flex;
+          justify-content: flex-start;
+          padding: 10px;
+          &_area,
+          &_location {
+            flex-basis: 50%;
+          }
+          .g-icon {
+            margin-right: 5px;
+          }
+        }
+        .g-icon {
+          fill: #5d5d5d;
+        }
+      }
+    }
+    .g-table {
+      display: none;
+      &_paginate {
+        display: block;
+        margin: 0 auto;
+        width: 253px;
+      }
+    }
+    &_footer {
+      flex-direction: column;
+      margin: 30px 0;
+      &_wrap,
+      .g-table_paginate {
+        flex-basis: 100%;
+      }
+      &_wrap {
+        margin: 0 auto;
+        margin-top: 10px;
+        order: 2;
+        text-align: center;
+        width: 100%;
+        .g-btn {
+          width: 253px;
+        }
+      }
+      .g-table_paginate {
+        order: 1;
+      }
+    }
+  }
+}

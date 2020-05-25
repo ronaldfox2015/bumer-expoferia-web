@@ -1,0 +1,39 @@
+#modalQuestions.g-modal.b-modal-questions
+  .b-modal-questions_header
+    .b-modal-questions_header-logo.u-center-image
+      img.b-modal-questions_header-logo__image(src!="{{ data.image }}")
+    .b-modal-questions_header-information
+      p.b-modal-questions_header-information__text Por favor responde las siguientes preguntas solicitadas por la empresa:
+  form#frmModalQuestions.js-form-valide.b-modal-questions_body(method="post", action!="{{ url('fair_job_apply', {jobId: data.id, redirect: app.request.uri}) }}", onsubmit!="{{ datalayer.createDataLayer('postulacion', 'Postulacion', 1, {'applied': data.applied, 'jobId': data.id, 'hasQuestions': data.has_questions})|raw }}")
+    .b-modal-questions_body-content.g-form-box.g-form-box--fair
+      | {% for question in data.questions %}
+      .b-modal-questions_body-item.g-form-box_row
+        label.b-modal-questions_body-item__question(for!="txaQuestion{{ loop.index }}") {{ loop.index }}.&nbsp;{{ question.body }}
+        .g-form-box_col
+          fieldset.js-fieldset(class!="{{ question.type_name != 'choices' ? 'g-form-box_fieldset' : 'g-form-box_fieldset--radio' }}")
+            | {% if question.type_name == 'open' %}
+            textarea.g-form_textarea.b-modal-questions_body-item__input.js-question(id!="txaQuestion{{ loop.index }}" name!="answers[{{ question.id }}][body]" maxlength!="{{ question.validation.length }}" data-valid!="{{ question.validation.type }}" required)
+            | {% elseif question.type_name == 'suggested' %}
+            | {% if question.validation.type == 'string' %}
+            textarea.g-form_textarea.b-modal-questions_body-item__input.js-question(id!="txaQuestion{{ loop.index }}" name!="answers[{{ question.id }}][body]" maxlength!="{{ question.validation.length }}" data-valid!="{{ question.validation.type }}" required)
+            | {% else %}
+            input.b-modal-questions_body-item__input.js-question(type="text" id!="txQuestion{{ loop.index }}" name!="answers[{{ question.id }}][body]" maxlength!="{{ question.validation.length }}" data-valid!="{{ question.validation.type }}" required)
+            | {% endif %}
+            | {% else %}
+            .g-form-box_row
+              | {% for item in question.choices %}
+              .b-modal-questions_body-item__radio
+                input.js-question(type="radio" value!="{{ item }}" id!="{{ item }}" name!="answers[{{ question.id }}][body]" data-valid!="{{ question.validation.type }}" required)
+                label.b-modal-questions_body-item__label(for!="{{ item }}") {{ item }}
+              | {% endfor %}
+            | {% endif %}
+          input(type="hidden" name!="answers[{{ question.id }}][question_id]" value!="{{ question.id }}")
+          | {% if question.type_name != 'choices' %}
+          span.b-modal-questions_body-item__information Máximo {{ question.validation.length }} caracteres
+          | {% endif %}
+      | {% endfor %}
+    .g-modal_btn-container
+      button.g-btn.g-btn--white.js-cancel(type="button") Cancelar
+      button#btnSaveQuestions.g-btn.g-btn--blue
+        span.g-btn__label Enviar
+        span.g-btn__spinner

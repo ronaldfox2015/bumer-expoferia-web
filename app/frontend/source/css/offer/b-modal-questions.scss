@@ -1,0 +1,107 @@
+.b-modal-questions {
+  margin: 0px 10px;
+  max-width: 600px;
+  &_header {
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    &-logo {
+      display: inline-block;
+      height: 100px;
+      vertical-align: top;
+      width: 100px;
+      &__image {
+        border: 1px solid #ececec;
+      }
+    }
+    &-information {
+      display: inline-block;
+      margin: 0 14px;
+      &__text {
+        color: #000;
+        font-family: $familySans;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+      }
+    }
+  }
+  &_body {
+    padding: 0 20px 10px 20px;
+    &-content {
+      max-height: 350px;
+      overflow-y: auto;
+    }
+    &-item {
+      margin-right: 16px;
+      padding-bottom: 20px;
+      &__question {
+        color: $blue;
+        display: block;
+        font-family: $familySans;
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      &__information {
+        color: #a1a1a1;
+        display: inline-block;
+        font-family: $familySans;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: right;
+        width: 100%;
+      }
+      &__input {
+        width: 100%;
+      }
+      &__radio {
+        margin-bottom: 6px;
+        width: 50%;
+      }
+      &__label {
+        max-width: 230px;
+      }
+      .g-form-box_row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .g-form-box_fieldset {
+        border: 1px solid #cecece;
+        border-radius: 3px;
+        &--radio {
+          padding: 7px 13px 5px;
+          &.is-error {
+            background-color: transparent;
+          }
+        }
+        &.is-error {
+          border: 1px solid #fc7d7d;
+        }
+      }
+    }
+    .g-modal_btn-container {
+      text-align: center;
+    }
+  }
+  .g-form-box--fair .g-form-box_row {
+    border: none;
+    margin-top: 0;
+  }
+  .g-form_textarea {
+    height: 100px;
+  }
+}
+
+@media (max-width: 690px) {
+  .b-header-questions {
+    padding-bottom: 10px;
+    &_header-logo {
+      display: block;
+    }
+    &__header-information {
+      display: block;
+      padding-left: 0px;
+      width: 100%;
+    }
+  }
+}

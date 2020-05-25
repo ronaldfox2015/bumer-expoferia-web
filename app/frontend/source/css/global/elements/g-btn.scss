@@ -1,0 +1,128 @@
+.g-btn {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 36px;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  transition: 0.3s ease all;
+  vertical-align: middle;
+  z-index: 1;
+  &--disabled,
+  &[disabled] {
+    background-color: #DBDBDB !important;
+    border: 1px solid #DBDBDB !important;
+    box-shadow: none !important;
+    color: #6C6C6C;
+    cursor: default;
+    pointer-events: none;
+  }
+  &[loading] {
+    .g-btn__spinner {
+      border-radius: 4px;
+      opacity: 1;
+      transform: none;
+    }
+    .g-btn__label {
+      opacity: 0;
+    }
+  }
+  &__label {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    .g-icon {
+      line-height: 28px;
+      transition: 0.3s ease all;
+    }
+  }
+  &__spinner {
+    background-color: #B6B6B6;
+    background-image: url($imgPath + "button-loader.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    display: inline-block;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scale(0.2);
+    transition: 0.3s ease all;
+    vertical-align: top;
+    width: 100%;
+  }
+}
+.g-btn--skyblue{
+  cursor: pointer;
+  margin: 0 3px;
+  text-transform: uppercase;
+  transition: background 0.2s ease-in-out;
+  @include button_link ($skyblue, white, 0px);
+  &:hover{
+    @include hover(darken($skyblue, 8%), white);
+  }
+}
+.g-btn--apt_sky_blue {
+  background: $aptSkyblue;
+  &:hover {
+    background: $aptSkyblueHover;
+  }
+}
+.g-btn--green {
+  background: $green;
+  &:hover {
+    background: $greenHover;
+  }
+}
+.g-btn--blue{
+  border: 1px solid $blue;
+  @include button_link ($blue, white, 3px);
+  &:hover{
+    @include hover(darken($blue, 5%), white);
+  }
+}
+.g-btn--red {
+  background: #e63d3d;
+  &:hover {
+    background: darken(#e63d3d, 20%);
+  }
+}
+.g-btn--white{
+  border: 1px solid $blue;
+  @include button_link (white, $blue, 3px);
+  &:hover{
+    @include hover($blue, white);
+  }
+}
+
+.g-btn--gray {
+  @include button_link (#5e5d5d, white, 5px);
+  &:hover{
+    @include hover(#5e5d5d, white);
+  }
+}
+
+.g-btn--more-info {
+  background: #FFFFFF;
+  border: 1px solid #78CCFD;
+  color: #7F7F7F;
+  font-size: 13px;
+  line-height: 25px;
+  &:hover {
+    box-shadow: 0 0 5px #78CCFD;
+    .g-icon {
+      transform: translateX(3px);
+    }
+  }
+  .g-icon {
+    font-size: 10px;
+    line-height: 25px;
+    padding: 0 0 0 10px;
+  }
+}

@@ -1,0 +1,10 @@
+//clase para modificar
+.b-tabs-content {
+  padding: 25px 10px 50px;
+  &_box {
+    display: none;
+    &.is-active{
+      display: inherit;
+    }
+  }
+}

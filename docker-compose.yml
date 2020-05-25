@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+    nginx:
+       image: ronaldgcr/apt_expoferia_backend:nginx
+       depends_on:
+          - memcached
+
+    memcached:
+        image: memcached

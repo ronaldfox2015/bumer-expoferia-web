@@ -1,0 +1,267 @@
+@media (max-width: 1366px) {
+  .g-expo-company{
+    &_wrapper-image {
+      &--mobile {
+        height: 120px;
+        width: 174px;
+      }
+    }
+    &_logo-feria {
+      height: 60px;
+      margin-bottom: 28px;
+    }
+    &_text-down {
+      font-size: 11px;
+      width: 130px;
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .g-offer {
+    &_content {
+      padding: 30px 50px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .g-expo-company {
+    &_image {
+      object-fit: inherit;
+    }
+    &_box-image {
+      height: 640px;
+    }
+    &_wrapper-image {
+      &--tablet {
+        display: block;
+      }
+      &--desktop {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 935px) {
+  .g-offer {
+    &_detail-list {
+      column-count: 1;
+      max-height: fit-content;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 834px) {
+  .g-offer {
+    padding: 20px 0 0 0;
+    width: 100%;
+    &_btn-back {
+      padding: 0 16px;
+    }
+    &_content {
+      padding: 20px 0 0 0;
+    }
+    &_header {
+      margin-bottom: 22px;
+      padding: 0 42px;
+    }
+    &_header-logo {
+      height: 75px;
+      width: 75px;
+    }
+    &_company-title {
+      width: calc(100% - 75px);
+    }
+    &_detail {
+      padding: 0 16px 2px;
+    }
+    &_detail-item {
+      margin-bottom: 10px;
+      &__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    &_information {
+      margin: 10px 0;
+      padding: 25px 15px 25px 35px;
+    }
+    &_mobile {
+      border-top: 1px solid #cccccc;
+      display: block;
+    }
+    &_button--mobile {
+      height: 65px;
+      padding: 10px 0;
+      position: relative;
+      text-align: center;
+      .g-btn {
+        border-radius: 8px;
+        font-size: 17px;
+        font-weight: 700;
+        height: 46px;
+        line-height: 46px;
+        text-transform: capitalize;
+        width: 213px;
+      }
+    }
+    &_title-networks {
+      margin-right: 4px;
+      width: auto;
+    }
+    .g-aside_description {
+      font-family: $familySans;
+    }
+    .g-aside_social-networks {
+      align-items: center;
+      height: 68px;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+  .b-aside {
+    display: none;
+  }
+  .g-aside {
+    display: none;
+  }
+}
+
+@media (max-width: 769px) {
+  .g-expo-company {
+    &_box-image {
+      height: 48vh;
+    }
+    &_wrapper-image {
+      height: 105px;
+    }
+    &_logo-feria {
+      padding-bottom: 4px;
+    }
+  }
+}
+
+@media (max-width: 620px), (max-height: 425px) {
+  .g-expo-company {
+    &_box-image {
+      height: 180px;
+    }
+    &_wrapper-image {
+      &--mobile {
+        align-items: center;
+        background: transparent;
+        color: #FFF;
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: bold;
+        height: 100%;
+        justify-content: center;
+        left: 0;
+        position: relative;
+        top: 0;
+        width: 100%;
+        .g-expo-company{
+          &_image {
+            display: block;
+            min-width: 525px;
+            top: initial;
+            width:100%;
+          }
+        }
+      }
+      &--desktop,
+      &--tablet {
+        display: none;
+      }
+    }
+    &_logo-wrapper {
+      display: none;
+    }
+    &_text-mobile {
+      display: block;
+      font-size: 17px;
+      position: absolute;
+      z-index: 1;
+      &__first {
+        bottom: 88px;
+      }
+      &__second {
+        bottom: 34px;
+      }
+    }
+    &_text-down {
+      bottom: 58px;
+      color: #FFF;
+      display: block;
+      font-size: 17px;
+      font-weight: bold;
+      left: 2%;
+      line-height: 23px;
+      position: absolute;
+      width: 220px;
+      z-index: 1;
+      &_desktop {
+        display: none;
+      }
+    }
+    &_translate {
+      display: none;
+    }
+    &_image {
+      height: initial;
+    }
+  }
+}
+
+@media(max-width: 463px) {
+  .b-modal-confirmation {
+    margin: 20px 10px;
+    width: auto;
+    &_bottom {
+      padding: 0 30px;
+    }
+  }
+
+  .b-modal-register {
+    margin: 40px 10px;
+    width: auto;
+    &_form {
+      .g-form-box_row {
+        border: none;
+        &:last-of-type {
+          .g-form-box_fieldset {
+            border: none;
+          }
+        }
+      }
+      .g-form-box_col6 {
+        width: 100%;
+      }
+      .g-form-box_fieldset {
+        border-bottom: 1px solid #b2b2b2;
+        border-right: 0px;
+      }
+    }
+    &_conditions {
+      justify-content: center;
+      &__accounts {
+        margin-bottom: 10px;
+        text-align: center;
+        width: 100%;
+      }
+      .g-btn--green {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
+    &_buttons-first {
+      margin-bottom: 50px;
+    }
+    &_bottom-container {
+      padding: 17px 5px;
+    }
+  }
+}
+

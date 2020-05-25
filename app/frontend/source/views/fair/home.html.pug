@@ -1,0 +1,64 @@
+extends ../_layout/base.pug
+
+block eplanning
+  +script-eplanning({sec:"Portada",eIs:"['Middle']"})
+
+block stylesheets
+  link(rel="stylesheet", type="text/css", href!="{{ asset('home.css') }}")
+
+block content
+  include ../_layout/includes/flash-messages.pug
+  .g-expo-company
+    .g-expo-company_box-image.js-extra-layer
+      .g-expo-company_wrapper-image.g-expo-company_wrapper-image--desktop
+        img.g-expo-company_image(src!="{{ asset('/images/home.jpg') }}", alt="ExpoAptitus", data-image-src="{{ asset('/images/home') }}", usemap="#map")
+        include ../_partials/home/map-variables.pug
+      .g-expo-company_wrapper-image.g-expo-company_wrapper-image--tablet
+        img.g-expo-company_image(src!="{{ asset('/images/home-tablet.jpg') }}", alt="ExpoAptitus", data-image-src="{{ asset('/images/home') }}", usemap="#mapTablet")
+        include ../_partials/home/map-variables-tablet.pug
+      .g-expo-company_wrapper-image.g-expo-company_wrapper-image--mobile
+        h1.g-expo-company_text-down.g-expo-company_text-down_mobile La feria virtual de trabajo más grande del Perú
+        h1.g-expo-company_text-down.g-expo-company_text-down_desktop La feria virtual de trabajo más grande del Perú
+        img.g-expo-company_image(src!="{{ asset('/images/home-mobile.jpg') }}", alt='ExpoAptitus')
+        .g-expo-company_logo-wrapper
+          img.g-expo-company_logo-feria.u-center-image(src!="{{ asset('/images/logo-feria-transparente.svg') }}", alt='ExpoFeria Aptitus')
+    button.g-expo-company_translate.js-scroll-init
+      +g-icon("g-icon-mouse")
+      +g-icon("g-icon-left_arrow")
+  section.b-company.js-scroll-stop
+    .u-center_box
+      .b-company_inner
+        .b-company_wrapper.b-company_wrapper--sponsor
+          +g-eplanning("Middle", "g-eplanning--middle")
+          | {% if sponsors.data %}
+          .b-company_title
+            span.b-company_title__icon
+              +g-icon("g-icon-cup")
+            h2.b-company_title__text-seo {{ sponsors.title }}
+          ul.b-company_box-list.b-company_box-list--sponsor
+            | {% for sponsor in sponsors.data %}
+            li.b-company_item
+              a.b-company_logo.b-company_logo--sponsor.u-center-image(href="{{ sponsor.url }}", target="_blank")
+                img.b-company_img.lazy(src!="{{ asset('/images/blank.png') }}", data-original="{{ sponsor.image }}", onerror!="this.src = '{{ asset('/images/image-not-found.jpg') }}';", alt='{{ sponsor.companyName }}')
+            | {% endfor %}
+          | {% endif %}
+        .b-company_wrapper.b-company_wrapper--participating
+          .b-company_title
+            h2.b-company_title__text-seo EMPRESAS PARTICIPANTES
+          ul.b-company_box-list.b-company_box-list--participating
+            | {% for company in companies %}
+            li.b-company_item--participating.js-datalayer-participating
+              a.b-company_box-category(class!="b-company_box-category--{{ company.class }}", href!="{{ url('category_slug_jobs', {slug: company.slug }) }}", onclick!="{{ datalayer.createDataLayer('companies', company.trade_name, 1, {'pagePath': app.request.uri})|raw }}")
+                .b-company_logo.u-center-image.b-company_logo--participating
+                  img.lazy(src!="{{ asset('/images/blank.png') }}", data-original!='{{ company.image }}', alt!='{{ company.trade_name }}', onerror!="this.src = '{{ asset('/images/image-not-found.jpg') }}';")
+                .b-company_description
+                  span.b-company_description-title
+                    | {{ company.trade_name }}
+                  span.b-company_description-area
+                    | {{ company.industry }}
+                .b-company_icon
+                  +g-icon("g-icon-{{ company.class }}")
+            | {% endfor %}
+
+block scripts
+  script(src!="{{ asset('home.js') }}", defer)

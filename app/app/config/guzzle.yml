@@ -1,0 +1,59 @@
+parameters:
+  ms_url:     '%env(SERVICES_URL)%'
+  api_url:    '%env(API_URL)%'
+  api_edu:    '%env(API_URL_EDUCATION)%'
+  api_client: '%env(API_CLIENT)%'
+  api_secret: '%env(API_SECRET)%'
+
+guzzle:
+    logging: '%kernel.debug%'
+
+    clients:
+        api_microservices:
+           base_url: "%ms_url%"
+           headers:
+              Accept: "application/json"
+
+        api_aptitus:
+           base_url: "%api_url%"
+           options:
+              timeout: 30
+           headers:
+              Accept: "application/json"
+
+        api_education:
+           base_url: "%api_edu%"
+           headers:
+              Accept: "application/json"
+services:
+  _defaults:
+    autowire: true
+
+  ## Application Services
+  AppBundle\Auth\Adapter\AdapterInterface: '@AppBundle\Auth\Adapter\OAuth2Adapter'
+
+  AppBundle\Service\Fair\FairService:
+      arguments:  { $client: '@guzzle.client.api_microservices', $config: '%mapping%' }
+
+  AppBundle\Service\Job\JobService: ['@guzzle.client.api_aptitus', '@logger']
+  AppBundle\Service\Notification\NotificationService: ['@guzzle.client.api_microservices', '@logger']
+
+  AppBundle\Service\Postulant\StudyService: ['@guzzle.client.api_aptitus']
+  AppBundle\Service\Postulant\ExperienceService: ['@guzzle.client.api_aptitus']
+  AppBundle\Service\Postulant\ProfileInformationService: ['@guzzle.client.api_aptitus']
+
+  AppBundle\Service\Education\EducationService:
+      arguments: {$client: '@guzzle.client.api_education'}
+
+  AppBundle\Service\Base\BaseService: ['@guzzle.client.api_aptitus', '@logger']
+  AppBundle\Auth\Adapter\OAuth2Adapter:  ['@guzzle.client.api_aptitus', '%api_client%', '%api_secret%']
+  AppBundle\Auth\SessionAuthentifier: ~
+
+  AppBundle\Auth\CrossSessionAuthentifier:
+      arguments:  { $crossSessionStorage: '@app.session.handler.memcache' }
+
+  AppBundle\Service\Job\SearchService:
+      arguments:  { $client: '@guzzle.client.api_aptitus' }
+
+  AppBundle\Service\Postulant\UserService:
+      arguments:  { $client: '@guzzle.client.api_aptitus' }

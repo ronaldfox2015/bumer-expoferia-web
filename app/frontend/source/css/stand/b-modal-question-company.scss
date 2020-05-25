@@ -1,0 +1,32 @@
+.b-modal-question-company {
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  &_logo {
+    max-height: 100px;
+    margin-bottom: 15px;
+    width: 100px;
+  }
+  &_ask {
+    color: $blue;
+    font-family: $familyBold;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  &_box {
+    padding: 0;
+  }
+  &_box-btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 0 5px;
+  }
+  .g-btn {
+    padding: 0 30px;
+    text-transform: uppercase;
+  }
+  .g-form-box input {
+    height: 30px;
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,33 @@
+#modalLogin.g-modal.js-modal.b-modal-login
+  div.g-modal_title
+    span.g-modal_title_span Accede a tu cuenta de Aptitus.com
+    +g-icon("g-icon-cross")
+  form#frmLogIn.b-modal-login_form.js-form-valide(method="post", action="{{ next_url is defined ? next_url : app.request.uri }}")
+    .g-form-box.js-form-box
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Email
+            input#txtUser(type="email", name="email", size="50", required)
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Contraseña
+            input#txtPasswordLogin(type="password", name="password", size="50", required)
+    button.g-btn.g-btn--blue#btnLoginUser
+      span.g-btn__label Ingresar
+      span.g-btn__spinner
+    button.b-modal-login__forgotten-pass.js-recover-init(type="button") Olvidé mi contraseña
+    label.b-modal-login_remember-browser
+      | Recordar mi contraseña
+      input(type="checkbox", checked="checked")
+  a.b-modal-login_btn-social.js-login-facebook(href!="{{ facebook.getLoginUrl() }}")
+    span.b-modal-login_btn-social_facebook
+      +g-icon("g-icon-facebook_square")
+    span.b-modal-login_btn-social__text Ingresar con Facebook
+    +g-icon("g-icon-arrow_right")
+  input#fbLoginUrl(type="hidden", value="{{ facebook.getLoginUrl() }}")
+  input#fbLoginApplyUrl(type="hidden", value="{{ next_url is defined ? facebook.getLoginUrl(url('fair_job_apply', {jobId: data.id, redirect: app.request.uri})) : '' }}")
+  p.b-modal-login_bottom
+    | ¿No tienes cuenta?
+    button.b-modal-login_bottom__signup(class="js-register-init" type="button") Regístrate

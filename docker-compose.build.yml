@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    base:
+      image: ronaldgcr/apt_expoferia_backend:base
+      build:
+        context: ./docker/base/
+
+    nginx:
+       image: ronaldgcr/apt_expoferia_backend:nginx
+       build:
+        context: ./docker/nginx
+
+    cli:
+      image: ronaldgcr/apt_expoferia_backend:cli
+      build:
+        context: ./docker/cli/
+
+    yarn:
+      image: ronaldgcr/apt_expoferia_backend:yarn
+      build:
+        context: ./docker/yarn/

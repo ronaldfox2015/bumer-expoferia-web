@@ -1,0 +1,25 @@
+include ../../_config/page
+include ../../_layout/mixins/_mixins
+
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+    include ../../_layout/includes/metas
+    include ../../_layout/includes/favicon
+    link(rel="stylesheet", type="text/css", href!="{{ asset('vendor.css') }}")
+    link(rel="stylesheet", type="text/css", href!="{{ asset('global.css') }}")
+    link(rel="stylesheet", type="text/css", href!="{{ asset('close.css') }}")
+    +gtm-block-header()
+  body
+    block eplanning
+    +gtm-block-body()
+    .l-main-body
+      include ../../_layout/includes/flash-messages.pug
+      block content
+    .u-hide
+      include ../../_layout/includes/icons.svg
+    script(src!="{{ asset('manifest.js') }}", defer)
+    script(src!="{{ asset('vendor.js') }}", defer)
+    script(src!="{{ asset('babel-polyfill.js') }}", defer)

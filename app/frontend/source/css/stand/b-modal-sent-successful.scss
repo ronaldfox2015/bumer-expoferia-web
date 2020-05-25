@@ -1,0 +1,27 @@
+.b-modal-send-successful {
+  border-radius: 5px;
+  padding: 30px;
+  width: 500px;
+  &_congratulations {
+    font-size: 24px;
+  }
+  &_image {
+    height: 80px;
+    margin: 0 auto 15px;
+    width: 80px;
+  }
+  &_box-message {
+    color: $blue;
+    font-family: $familyBold;
+    text-align: center;
+  }
+  &_confirm {
+    margin-top: 18px;
+    text-transform: uppercase;
+  }
+  .g-icon-star {
+    height: 80px;
+    width: 80px;
+    fill: $blue;
+  }
+}

@@ -1,0 +1,28 @@
+/*
+* Font Styles
+* @module fonts
+**/
+
+@font-face {
+  font-family: "museo300-webfont";
+  src: url($fontPath + "museo300-webfont.eot");
+  src: url($fontPath + "museo300-webfont.eot?#iefix") format("embedded-opentype"), url($fontPath + "museo300-webfont.woff") format("woff"), url($fontPath + "museo300-webfont.ttf") format("truetype"), url($fontPath + "museo300-webfont.svg#museo300-webfont") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "museo500-webfont";
+  src: url($fontPath + "museo500-webfont.eot");
+  src: url($fontPath + "museo500-webfont.eot?#iefix") format("embedded-opentype"), url($fontPath + "museo500-webfont.woff") format("woff"), url($fontPath + "museo500-webfont.ttf") format("truetype"), url($fontPath + "museo500-webfont.svg#museo500-webfont") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "museoSans-webfont";
+  src: url($fontPath + "museoSans-webfont.eot");
+  src: url($fontPath + "museoSans-webfont.eot?#iefix") format("embedded-opentype"), url($fontPath + "museoSans-webfont.woff") format("woff"), url($fontPath + "museoSans-webfont.ttf") format("truetype"), url($fontPath + "museoSans-webfont.svg#museoSans-webfont") format("svg");
+  font-style: normal;
+  font-weight: normal;
+}

@@ -1,0 +1,78 @@
+.g-table {
+  width: 100%;
+  &_header {
+    background: #1a4f6f;
+    color: white;
+    &_row_cell {
+      padding: 10px 20px;
+      text-transform: uppercase;
+      &:first-child {
+        border-radius:5px 0 0 0;
+        text-align: left;
+      }
+      &:last-child {
+        border-radius:0 5px 0 0;
+      }
+    }
+  }
+  &_body {
+    &_row {
+      &:nth-child(odd) {
+        background: #ecebe9
+      }
+      &::nth-child(even) {
+        background: #f7f7f7
+      }
+      &_cell {
+        padding: 10px 20px;
+      }
+    }
+  }
+  &_paginate {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    &_button {
+      color: $blue;
+      height: 24px;
+      line-height: 24px;
+      min-width: 24px;
+      text-align: center;
+      text-decoration: underline;
+      &--first,
+      &--last,
+      &--dots,
+      &--disabled,
+      &.is-current {
+        text-decoration: none;
+      }
+      &--disabled,
+      &.is-current {
+        color: #808080;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+    &_mobile{
+      display: none;
+    }
+  }
+  @include breakpoint(max-width 490px) {
+    &_paginate {
+      justify-content: center;
+      &_mobile {
+        display: block;
+        width: 280px;
+        .g-btn--white:first-child {
+          margin-right: 10px;
+        }
+      }
+      &_button--disabled {
+        border-color: #808080;
+      }
+      &_desktop {
+        display: none;
+      }
+    }
+  }
+}

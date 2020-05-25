@@ -1,0 +1,13 @@
+extends ../_layout/base.pug
+
+block stylesheets
+  link(rel='stylesheet', type='text/css', href!="{{ asset('error.css') }}")
+
+block content
+  .u-center_box
+    .b-error-page
+      h2.b-error-page_title La página que intentas solicitar no está en el servidor
+      img.b-error-page_img(src="http://cds.aptitus.com/images/error_office.gif", title="Error 404")
+
+block scripts
+  script(src!="{{ asset('error.js') }}")

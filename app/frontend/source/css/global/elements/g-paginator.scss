@@ -1,0 +1,118 @@
+
+.g-paginator {
+  &_desktop {
+    font-size: 0;
+    &__item-first-child {
+      @include prev-next(left);
+      .g-paginator_desktop__item-link {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+    &__item-last-child {
+      @include prev-next(right);
+      .g-paginator_desktop__item-link {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+    &__item {
+      border: 1px solid $grayLine;
+      box-sizing: border-box;
+      display: inline-block;
+      margin-left: -1px;
+      &:first-child {
+        margin-left: 0px;
+      }
+      .next {
+        transform: rotate(180deg);
+      }
+    }
+    &__item-link {
+      background: linear-gradient(180deg,#fff 0,#f3f3f3);
+      display: block;
+      font-size: $basefont;
+      font-weight: 700;
+      line-height: 38px;
+      max-width: 45px;
+      min-width: 38px;
+      overflow: hidden;
+      padding: 0 5px;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .g-icon {
+        fill: #4d4d4d;
+        height: 8px;
+        width: 8px;
+      }
+      &.is-disabled {
+        background: #c3c3c3;
+        .g-icon {
+          fill: #909497;
+        }
+      }
+      &.is-active {
+        background: $skyblue;
+        color: $paginatorColor;
+      }
+    }
+  }
+  &_mobile {
+    display: none;
+  }
+  @include breakpoint(max-width 600px) {
+    &_desktop {
+      display: none;
+    }
+    &_mobile {
+      display: block;
+      font-size: 0;
+      width: 253px;
+      &__item-left {
+        border-radius: 4px 0 0 4px;
+      }
+      &__item-right {
+        border-radius: 0 4px 4px 0;
+        margin-left: -1px;
+      }
+      &__item {
+        border: 1px solid $grayLine;
+        display: inline-block;
+        width: 50%;
+      }
+      &__item-link {
+        color: $skyblue;
+        display: block;
+        font-size: $basefont;
+        font-weight: bold;
+        line-height: 38px;
+        text-align: center;
+        width: 100%;
+        .g-icon {
+          fill: #c3c3c3;
+          height: 8px;
+          margin: 0 8px;
+          width: 8px;
+        }
+        &.is-disabled {
+          background: #eaeaea;
+          .g-icon {
+            fill: #909497;
+          }
+          span {
+            color: #939393;
+          }
+        }
+        &.is-active {
+          background: $skyblue;
+          color: $paginatorColor;
+        }
+        .next {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+

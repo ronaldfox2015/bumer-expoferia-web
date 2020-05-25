@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+    cli:
+      image: ronaldgcr/apt_expoferia_backend:cli
+      environment:
+        - DEV_UID=${DEV_UID}
+        - DEV_GID=${DEV_GID}
+      volumes:
+        - ./app/:/app/
+        - ./docker/cli/ssh/:/app/.ssh/
+      command: composer update --no-progress --profile --prefer-dist
+
+    yarn:
+      image: ronaldgcr/apt_expoferia_backend:yarn
+      environment:
+        - DEV_UID=${DEV_UID}
+        - DEV_GID=${DEV_GID}
+      volumes:
+        - ./app/:/app/
+      command: yarn --pure-lockfile

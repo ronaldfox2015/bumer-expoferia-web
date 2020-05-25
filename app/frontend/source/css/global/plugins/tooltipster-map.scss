@@ -1,0 +1,27 @@
+.tooltipster-sidetip.tooltipster-map.tooltipster-map-customized .tooltipster-box {
+  background: white;
+  border: 1px solid white;
+  border-radius: 0;
+  box-shadow: 0 8px 6px -6px black;
+  font-family: $familyBold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.tooltipster-sidetip.tooltipster-map .tooltipster-arrow .tooltipster-arrow-uncropped .tooltipster-arrow-background {
+  border-bottom-color: white;
+}
+
+.tooltipster-sidetip.tooltipster-map.tooltipster-top .tooltipster-arrow-background {
+  border-top-color: white;
+  top: 0;
+}
+
+.tooltipster-sidetip.tooltipster-map.tooltipster-top .tooltipster-arrow-border {
+  border-top-color: white;
+}
+
+.tooltipster-sidetip.tooltipster-map.tooltipster-map-customized .tooltipster-content {
+  color: #757575;
+  line-height: 20px;
+}

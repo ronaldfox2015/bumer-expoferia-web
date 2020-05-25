@@ -1,0 +1,107 @@
+.u-row.g-form-box--hide.js-second-modal
+  .g-form-box_main-error.js-global-form-errors
+  .b-modal-register__subtitle--blue Último estudio
+  .b-modal-register__error.js-subtitle-study
+  #formLastStudy.g-form-box(data-index="study")
+    input.js-field-serialize(type="hidden", name="study_id")
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Grado
+          select#grade.js-field-serialize.js-grade(name="grade_id", required)
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Estado
+          select#state.js-field-serialize.js-state(name="state_id", required)
+            option(value="default") Selecciona una estado
+    .g-form-box_row
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Institución
+          input#institution.js-autocomplete-institution(name="institution_txt", type="text", value="", autocomplete="off", required)
+          input#institutionId.js-institution-id.js-field-serialize(type="hidden", name="institution_id", value="")
+          input.js-institution-txt.js-field-serialize(type="hidden", name="institution", value="")
+      .g-form-box_col6
+        fieldset.g-form-box_fieldset.js-fieldset
+          label.g-form-box__label Carrera
+          input#career.js-career(type="text", name="career_txt", maxlength="75", minlength="6", autocomplete="off", required)
+          input#careerId.js-career-id.js-field-serialize(type="hidden", name="career_id", value="")
+          input.js-career-txt.js-field-serialize(type="hidden", name="career", value="")
+    .g-form-box_row
+      .g-form-box_col6.js-date-range.js-section-date
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+          label.g-form-box__label Fecha inicio
+          input#dateStartStudy.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="study_date_start", minyear="1917", data-date="start", autocomplete="off", required)
+        fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+          label.g-form-box__label Fecha fin
+          input#dateEndStudy.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="study_date_end", minyear="1917", data-date="end", autocomplete="off")
+      .g-form-box_col6.js-container-disable
+        fieldset.g-form-box_fieldset.g-form-box__check.js-fieldset
+          input#currentStudy.js-field-serialize.js-disable-end-date(type="checkbox", name="currently_studying")
+          label.b-modal-register__label(for="currentStudy") Estudia actualmente
+  .b-modal-register_conditions
+    .b-modal-register_conditions__accounts
+      | Quieres agregar un nuevo estudio, ingresa a
+      a.b-modal-register_conditions__link-policies.js-close-modal(href!="{{ base.getAptitusHost() }}postulante/mi-perfil#estudios", target="_blank") tu cuenta
+      | &nbsp;en Aptitus.com
+  .b-modal-register__subtitle--blue Última experiencia laboral
+  .b-modal-register__error.js-subtitle-job
+  #formLastJob.b-modal-register__experience(data-index="experience")
+    .u-row
+      input.js-field-serialize(type="hidden", name="experience_id")
+      input#notExperience.js-field-serialize(type="checkbox", name="has_experience")
+      label.b-modal-register__label(for="notExperience") Sin experiencia laboral
+    #formJob.g-form-box
+      .g-form-box_row
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Empresa
+            input#company.js-field-serialize.is-edit(type="text", name="company", maxlength="75", minlength="3", autocomplete="off", required)
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Industria
+            input#industry.js-field-serialize.is-edit(type="text", name="industry", value="", autocomplete="off", required)
+      .g-form-box_row
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Puesto
+            input#position.js-position.is-edit(name="job_txt", type="text", maxlength="75", autocomplete="off", required)
+            input#jobId.js-position-id.js-field-serialize(type="hidden", name="job_id", value="")
+            input.js-position-txt.js-field-serialize(type="hidden", name="job", value="")
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Nivel de puesto
+            select#level.is-edit.js-field-serialize.js-level(name="level_id", required)
+      .g-form-box_row.js-section-date
+        .g-form-box_col6
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Área
+            select#area.is-edit.js-field-serialize.js-area(name="area_id", required)
+        .g-form-box_col6.js-date-range
+          fieldset.g-form-box_fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+            label.g-form-box__label Fecha inicio
+            input#dateStartExperience.is-edit.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="experience_date_start", minyear="1917", data-date="start", autocomplete="off", required)
+          fieldset.g-form-box_fieldset.g-form-box_fieldset.g-form-box_fieldset_left.js-fieldset
+            label.g-form-box__label Fecha fin
+            input#dateEndExperience.is-edit.js-field-serialize.js-date(type="text", placeholder="mm/aaaa", name="experience_date_end", minyear="1917", data-date="end", autocomplete="off")
+      .g-form-box_row.js-container-disable
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.g-form-box__check.js-fieldset
+            input#current_work.is-edit.js-field-serialize.js-disable-end-date(type="checkbox", name="currently_working")
+            label.b-modal-register__label(for="current_work") Trabaja actualmente
+      .g-form-box_row
+        .g-form-box_col12
+          fieldset.g-form-box_fieldset.js-fieldset
+            label.g-form-box__label Descripción
+            textarea#description.g-form-box__textarea.is-edit.js-field-serialize(type="text", name="description", maxlength="1500", autocomplete="off", required)
+    .b-modal-register_conditions
+      .b-modal-register_conditions__accounts
+        | Quieres agregar una nueva experiencia laboral, ingresa a
+        a.b-modal-register_conditions__link-policies.js-close-modal(href!="{{ base.getAptitusHost() }}postulante/mi-perfil#experiencia", target="_blank") tu cuenta
+        | &nbsp;en Aptitus.com
+  .b-modal-register_buttons
+    a.g-btn.g-btn--gray.js-btn-prev(href="javascript:;")
+      span.g-btn__label Anterior
+    button.g-btn.g-btn--blue#btnUpdate
+      span.g-btn__label Guardar
+      span.g-btn__spinner

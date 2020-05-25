@@ -1,0 +1,136 @@
+extends ../_layout/base.pug
+
+block eplanning
+  +script-eplanning({sec:"DetalleAviso",eIs:"['Top']"})
+
+block seo
+  link(rel='canonical', href="{{ data.url }}")
+block stylesheets
+  link(rel='stylesheet', type='text/css', href="{{ asset('offer.css') }}")
+
+block datalayer
+  script(type="text/javascript").
+    {% if app.session.flashbag.has('success') %}
+    {{ datalayer.createDataLayer('postulacion_success', 'Postulacion', 1, {'applied': data.applied, 'jobId': data.id, 'hasQuestions': data.has_questions})|raw }}
+    {% endif %}
+block modals
+  include ../_partials/offer/modals/_modals.pug
+
+block content
+  .b-offer_navigation
+    a.g-btn--skyblue.g-navigation_button.g-navigation_button--right.b-offer_ads-btn(href!="{{ url.previous }}")
+      +g-icon("g-icon-arrow_right2")
+    a.g-btn--skyblue.g-navigation_button.g-navigation_button--left.b-offer_ads-btn(href!="{{ url.next }}")
+      +g-icon("g-icon-arrow_right2")
+  .u-center_box
+    .g-offer_container
+      .g-offer_content
+        .g-offer_btn-back
+          a.g-offer_btn-back-link(href!="{{ url.stand }}") Regresar a Stand
+        | {% set nro = app.session.flashbag.peekAll|length %}
+        include ../_layout/includes/flash-messages.pug
+        | {% if (nro == 0 and data.applied) %}
+        div(class="g-flash g-flash--success") ¡Felicitaciones! Ya postulaste al puesto de {{ data.title }} en {{ data.company }}
+        | {% endif %}
+        #flashMessage
+        .g-offer_main
+          .g-offer
+            | {% if auth.isLoggedIn() %}
+            +g-eplanning("Top")
+            | {% endif %}
+            input(id="adID", type="hidden", data-job!="{{ data.id }}")
+            | {% set user = auth.getUser() %}
+            .g-offer_header
+              .b-offer_navigation-mobile
+                a.g-btn--skyblue.g-navigation_button.g-navigation_button--right.b-offer_ads-btn(href!="{{ url.previous }}")
+                  +g-icon("g-icon-arrow_right2")
+                a.g-btn--skyblue.g-navigation_button.g-navigation_button--left.b-offer_ads-btn(href!="{{ url.next }}")
+                  +g-icon("g-icon-arrow_right2")
+              .g-offer_header-logo.u-center-image
+                img(src!="{{ data.image }}", alt!="{{ data.company }}", onerror!="this.src = '{{ asset('/images/image-not-found.jpg') }}';")
+              .g-offer_company-title.js-ads-detail-title
+                h1.g-offer_title {{ data.title }}
+                h2.g-offer_subtitle {{ data.company }}
+              .g-offer_company-title--mobile.js-ads-fixed
+                .g-offer_title {{ data.title }}
+                span.g-offer_subtitle {{ data.company }}
+            .g-offer_body
+              .g-offer_detail
+                ul.g-offer_detail-list
+                  li.g-offer_detail-item
+                    span.g-offer_detail-item__name Ubicación
+                    span.g-offer_detail-item__text {{ data.location_display }}
+                  li.g-offer_detail-item
+                    span.g-offer_detail-item__name Salario
+                    span.g-offer_detail-item__text {{ data.salary }}
+                  li.g-offer_detail-item
+                    span.g-offer_detail-item__name Modalidad
+                    span.g-offer_detail-item__text {{ data.modality }}
+                  li.g-offer_detail-item
+                    span.g-offer_detail-item__name Área
+                    span.g-offer_detail-item__text {{ data.area }}
+                  | {% if(data.disability) %}
+                  li.g-offer_detail-item
+                    .g-offer_detail-item__name
+                      +g-icon("g-icon-disability")
+                    span.g-offer_detail-item__text
+                      | Apto para personas con discapacidad
+                  | {% endif %}
+              .g-offer_information.js-content-description
+                .g-offer_information-item
+                  .g-offer_information-item_title.js-accordion-title
+                    +g-icon("g-icon-arrow_down1")
+                    h2.g-offer_title.g-offer_title--about Descripción
+                  .g-offer_information-item-wrapper
+                    .g-offer_information-item_content.js-current-content(data-height="150") {{ data.functions|raw }}
+                    a.g-offer_information-item_link.js-btn-view-more(href="javascript:;" title="ver más") Ver más
+                | {% if data.requirements is not empty %}
+                .g-offer_information-item
+                  .g-offer_information-item_title.js-accordion-title
+                    +g-icon("g-icon-arrow_down1")
+                    h2.g-offer_title.g-offer_title--about Requisitos
+                  .g-offer_information-item-wrapper
+                    ul
+                      | {% for requirement in data.requirements %}
+                      li.g-offer_detail-item
+                        i.g-offer_detail-item__bullet
+                        span.g-offer_detail-item__text
+                          | {{ requirement }}
+                      | {% endfor %}
+                | {% endif %}
+            .g-offer_mobile
+              .g-aside_social-networks
+                .g-offer_title-networks
+                  span.g-aside_description Compartir
+                .u-social-media.js-social-media-container(data-title!="{{ data.title }}", data-url!="{{ app.request.uri }}")
+                  a.u-social-media_link-view.js-fb(href="javascript:;")
+                    +g-icon("g-icon-facebook_square")
+                  a.u-social-media_link-view.js-twitter(href!="{{ app.request.uri }}")
+                    +g-icon("g-icon-twitter_square")
+                  a.u-social-media_link-view.js-linkedin(href!="{{ app.request.uri }}")
+                    +g-icon("g-icon-linkedin_square")
+                  a.u-social-media_link-view.js-share-email(href="javascript:;")
+                    +g-icon("g-icon-envelope_square")
+              .g-offer_button--mobile.js-btn-mobile
+                a.g-btn.js-btn-apply.g-btn--skyblue.js-init-apply(href!="{{ url('fair_job_apply', {jobId: data.id, redirect: app.request.uri }) }}", class!="{{ data.showModal }}", onclick!="{{ datalayer.createDataLayer('postulacion', 'Vista de Postulacion', 0, {'applied': data.applied, 'jobId': data.id, 'hasQuestions': data.has_questions})|raw }}", data-id-user!="{{ user is empty ? '' : user.id }}", data-id-ad!="{{ data.id }}")
+                  span.g-btn__label
+                    | Postular
+                  span.g-btn__loader
+          .g-aside
+            a.js-btn-apply.g-btn.g-btn--skyblue.js-init-apply(href!="{{ url('fair_job_apply', {jobId: data.id, redirect: app.request.uri}) }}", class!="{{ data.showModal }}", onclick!="{{ datalayer.createDataLayer('postulacion', 'Vista de Postulacion', 0, {'applied': data.applied, 'jobId': data.id, 'hasQuestions': data.has_questions})|raw }}", data-id-user!="{{ user is empty ? '' : user.id }}", data-id-ad!="{{ data.id }}")
+              | Postular
+            .g-aside_social-networks
+              span.g-aside_description Compartir
+              .u-social-media.js-social-media-container(data-title!="{{ data.title }}", data-url!="{{ app.request.uri }}")
+                a.u-social-media_link-view.js-fb(href="javascript:;")
+                  +g-icon("g-icon-facebook_square")
+                a.u-social-media_link-view.js-twitter(href!="{{ app.request.uri }}")
+                  +g-icon("g-icon-twitter_square")
+                a.u-social-media_link-view.js-linkedin(href!="{{ app.request.uri }}")
+                  +g-icon("g-icon-linkedin_square")
+                a.u-social-media_link-view.js-share-email(href="javascript:;")
+                  +g-icon("g-icon-envelope_square")
+block scripts
+  script(src="{{ asset('offer.js') }}", defer)
+  script#tplMessage(type='text/template', defer)
+    div(class="g-flash g-flash--success") <%= message %>

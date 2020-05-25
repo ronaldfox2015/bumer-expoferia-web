@@ -1,0 +1,134 @@
+
+.g-navigation {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  &_option {
+    .g-icon {
+      height: 16px;
+      width: 18px;
+    }
+  }
+  &_is-disabled {
+    background: #ccc;
+    pointer-events: none;
+  }
+  &_button {
+    align-items: center;
+    display: flex;
+    font-family: $familyBold;
+    height: 100px;
+    margin: 0;
+    opacity: 0.8;
+    padding: 0;
+    position: absolute;
+    top: 40%;
+    width: 42px;
+    z-index: 3;
+    .g-icon {
+      fill: white;
+      height: 50px;
+      margin-bottom: 3px;
+      margin-right: 0 10px;
+      vertical-align: middle;
+      width: 42px;
+    }
+    &--right {
+      .g-icon {
+        margin-right: 5px;
+        transform: rotate(180deg)
+      }
+    }
+    &--left {
+      right: 0;
+      .g-icon {
+        margin-left: 5px;
+      }
+    }
+  }
+  &--offer {
+    .g-navigation_option {
+        &--is-mobile {
+          display: none;
+        }
+      }
+    }
+  &_name-company {
+    background: #fff;
+    color: #000;
+    display: flex;
+    height: 38px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    &--mobile {
+      display: none;
+    }
+    &__text {
+      align-items: center;
+      display: block;
+      font-family: $familyBold;
+      font-size: 14px;
+      margin: auto;
+      overflow: hidden;
+      padding: 0 15px;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .g-navigation {
+    &_name-company {
+      display: none;
+      &--mobile {
+        background: #fff;
+        display: flex;
+        height: 37px;
+        left: 50px;
+        position: absolute;
+        width: calc(100% - 100px);
+        z-index: 2;
+      }
+    }
+  }
+
+  .g-navigation--offer {
+    width: 100%;
+    .g-navigation_option {
+      display: block;
+      width: 100%;
+      &--is-desktop {
+        display: none;
+      }
+      &--is-mobile {
+        display: inline-flex;
+      }
+      &--right{
+        text-align: right
+      }
+    }
+    .g-navigation_button {
+      width: 100%;
+    }
+  }
+  .g-navigation--stand {
+    .g-navigation_option {
+      &--return{
+        display: none;
+      }
+      &--arrows {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+    .g-navigation_button__text{
+      display: none;
+    }
+  }
+}

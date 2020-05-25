@@ -1,0 +1,56 @@
+@media (max-width: 620px) {
+  .g-expo-company {
+    padding: 0;
+    &_box-image {
+      height: 77vh;
+    }
+    &_image {
+      display: none;
+    }
+    &_image-hide {
+      display: block;
+    }
+  }
+
+  .b-expo-ended {
+    &_inner {
+      margin-top: 20px;
+      padding: 0 40px;
+    }
+    &_logo {
+      height: 85px;
+    }
+    &_logo-apt {
+      height: 22px;
+    }
+    &_content-slogan {
+      justify-content: center;
+    }
+    &_hide {
+      display: block;
+    }
+    &_search {
+      padding: 0 20px;
+      .g-btn {
+        margin-top: 15vh;
+      }
+    }
+    &_search-message:last-child {
+      display: none;
+    }
+    &_message-contact {
+      display: block;
+      font-family: $familySans;
+    }
+    &_message-title {
+      margin-bottom: 2px;
+    }
+    &_message-subtitle {
+      margin-top: 10px;
+    }
+    &_text {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+  }
+}

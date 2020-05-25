@@ -1,0 +1,20 @@
+.g-message_box {
+  color: white;
+  margin-bottom: 7px;
+  padding: 5px 10px;
+  text-align: center;
+  word-break: break-word;
+  &:empty {
+    display: none;
+  }
+  &.is-error {
+    background: #d05151;
+  }
+  &.is-success {
+    background: #539a52;
+  }
+  &.is-warning {
+    background: #f8f5ca;
+    color: #434343;
+  }
+}
