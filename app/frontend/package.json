@@ -61,7 +61,7 @@
     "jquery-lazyload": "^1.9.7",
     "lost": "^8.2.0",
     "node-notifier": "^5.1.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.13.1",
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
     "pug": "^2.0.0-rc.3",
