@@ -60,7 +60,7 @@
     "image-webpack-loader": "^3.3.1",
     "jquery-lazyload": "^1.9.7",
     "lost": "^8.2.0",
-    "node-notifier": "^5.1.2",
+    "node-notifier": "^8.0.1",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "postcss-loader": "^2.0.6",
