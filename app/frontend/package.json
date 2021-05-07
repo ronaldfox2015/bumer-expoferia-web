@@ -32,7 +32,7 @@
     "rxjs": "^5.4.2",
     "slick-carousel": "^1.6.0",
     "tooltipster": "^4.2.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.12.0",
